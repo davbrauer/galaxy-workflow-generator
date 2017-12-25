@@ -1,6 +1,6 @@
 # Galaxy - RNA-Seq
 
-FROM bgruening/galaxy-stable:dev
+FROM quay.io/bgruening/galaxy-stable:dev
 
 MAINTAINER Björn A. Grüning, bjoern.gruening@gmail.com
 
