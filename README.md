@@ -1,19 +1,11 @@
-[![DOI](https://zenodo.org/badge/46994376.svg)](https://zenodo.org/badge/latestdoi/46994376)
-[![Build Status](https://travis-ci.org/bgruening/docker-galaxy-ngs-preprocessing.svg?branch=master)](https://travis-ci.org/bgruening/docker-galaxy-ngs-preprocessing)
-[![Docker Repository on Quay](https://quay.io/repository/bgruening/galaxy-ngs-preprocessing/status "Docker Repository on Quay")](https://quay.io/repository/bgruening/galaxy-ngs-preprocessing)
+de.STAIR - Galaxy Workbench for guided generation of RNA-Seq Workflows
+======================================================================
 
-Galaxy Workbench for NGS-preprocessing
-======================================
-
-:whale: Galaxy Docker repository for preprocessing of NGS data
+:whale: Galaxy Docker repository
 
 # Installed tools
 
- * [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2)
- * [FASTQC](http://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
- * [deepTools](http://fidelram.github.io/deepTools/)
- * [BWA](http://bio-bwa.sourceforge.net/)
- * [Bowtie2](http://bowtie-bio.sourceforge.net/bowtie2)
+ * FASTQC
 
 # Requirements
 
@@ -25,23 +17,40 @@ Galaxy Workbench for NGS-preprocessing
 To launch:
 
 ```
-docker run -i -t -p 8080:80 bgruening/galaxy-ngs-preprocessing
+docker run -d -p 8080:80 destairdenbi/galaxy-guided-rna-seq:latest
+```
+
+To launch with a permanent storage of databases, histories, etc:
+
+```
+docker run -d -p 8080:80 -v ~/galaxy-guided-rna-seq_DB:/export destairdenbi/galaxy-guided-rna-seq:latest
+```
+
+To access:
+```
+http://localhost
+```
+        
+# Troubleshooting
+    
+```
+docker run --net host -d -p 8080:80 destairdenbi/galaxy-guided-rna-seq:latest
 ```
 
 For more details about this command line or specific usage, please consult the
 [`README`](https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md) of the main Galaxy Docker image, on which the current image is based.
 
 # Contributers
+ - Konstantin Riege
+ - Andrea Bagnacani
+ - Steffen Lott
+ - Markus Wolfien
 
+# Original Contributors
  - Bjoern Gruening
  - Bérénice Batut
 
 
-# History
-
- - 0.1: Initial release!
-
-
 # Support & Bug Reports
 
-You can file an [github issue](https://github.com/bgruening/docker-galaxy-ngs-preprocessing/issues) or ask us on the [Galaxy development list](http://lists.bx.psu.edu/listinfo/galaxy-dev).
+destair@leibniz-fli.de

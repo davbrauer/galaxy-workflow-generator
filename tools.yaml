@@ -1,0 +1,79 @@
+api_key: admin
+galaxy_instance: http://localhost:8080
+install_resolver_dependencies: true
+install_tool_dependencies: false
+tools:
+
+# Quality Control
+
+- name: fastqc
+  owner: devteam
+  tool_panel_section_label: "Quality Control"
+
+- name: multiqc
+  owner: engineson
+  tool_panel_section_label: "Quality Control"
+
+- name: trim_galore
+  owner: bgruening
+  tool_panel_section_label: "Quality Control"
+
+- name: trimmomatic
+  owner: pjbriggs
+  tool_panel_section_label: "Quality Control"
+
+# RNA-Seq
+
+- name: hisat2
+  owner: iuc
+  tool_panel_section_label: "RNA-Seq"
+ 
+- name: segemehl
+  owner: rnateam
+  tool_panel_section_label: "RNA-Seq"
+
+- name: tophat2
+  owner: devteam
+  tool_panel_section_label: "RNA-Seq"
+
+- name: featurecounts
+  owner: iuc
+  tool_panel_section_label: "RNA-Seq"
+
+- name: deseq2
+  owner: iuc
+  tool_panel_section_label: "RNA-Seq"
+
+- name: htseq_count
+  owner: lparsons
+  tool_panel_section_label: "RNA-Seq"
+
+- name: dexseq
+  owner: iuc
+  tool_panel_section_label: "RNA-Seq"
+
+- name: suite_cufflinks_2_2_1
+  owner: devteam
+  tool_panel_section_label: "RNA-Seq"
+
+- name: suite_viennarna
+  owner: rnateam
+  tool_panel_section_label: "RNA-Seq"
+
+- name: rseqc
+  owner: nilesh
+  tool_panel_section_label: "RNA-Seq"
+
+- name: sortmerna
+  owner: rnateam
+  tool_panel_section_label: "RNA-Seq"
+
+- name: data_manager_sortmerna_database_downloader
+  owner: rnateam
+  install_resolver_dependencies: false
+
+# Graph/Display Data
+
+- name: jbrowse
+  owner: iuc
+  tool_panel_section_label: "Graph/Display Data"
