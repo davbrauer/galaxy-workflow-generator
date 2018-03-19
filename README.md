@@ -1,6 +1,3 @@
-de.STAIR - Galaxy Workbench for guided generation of RNA-Seq Workflows
-======================================================================
-
 Galaxy Workbench for guided RNA-Seq Analysis
 ============================================
 
