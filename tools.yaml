@@ -86,6 +86,10 @@ tools:
 
 - name: data_manager_sortmerna_database_downloader
   owner: rnateam
+  install_resolver_dependencies: false
+
+- name: data_manager_sortmerna_database_downloader
+  owner: rnateam
   tool_panel_section_label: "RNA-Seq"
   install_resolver_dependencies: false
 
