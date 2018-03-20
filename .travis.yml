@@ -6,9 +6,6 @@ python: 2.7
 services:
   - docker
 
-env:
-  - TOX_ENV=py27
-
 git:
   submodules: false
 
@@ -17,7 +14,7 @@ before_install:
   - make docker_install
   - make docker_build
   - make docker_run
-  - sleep 60
+  - sleep 300
 
 install:
   - make install
