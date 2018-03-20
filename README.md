@@ -119,6 +119,13 @@ docker run --net host -d -p 8080:80 destairdenbi/galaxy-guided-rna-seq:latest
 For more details about this command line or specific usage, please consult the
 [`README`](https://github.com/bgruening/docker-galaxy-stable/blob/master/README.md) of the main Galaxy Docker image, on which the current image is based.
 
+# Built from source
+```
+git clone --recursive https://github.com/destairdenbi/galaxy-guided-rna-seq.git
+cd galaxy-guided-rna-seq
+docker built -t destairdenbi/galaxy-guided-rna-seq:17.05 .
+
+```
 
 # Contributers
 
