@@ -22,7 +22,27 @@ tools:
   owner: pjbriggs
   tool_panel_section_label: "Quality Control"
 
+# SAM Tools
+
+- name: suite_samtools_1_2
+  owner: devteam
+  tool_panel_section_label: "SAM Tools"
+
+# deepTools
+
+- name: suite_deeptools
+  owner: bgruening
+  tool_panel_section_label: "deepTools"
+
 # RNA-Seq
+
+- name: cummerbund
+  owner: devteam
+  tool_panel_section_label: "RNA-Seq"
+
+- name: cummerbund_to_tabular
+  owner: devteam
+  tool_panel_section_label: "RNA-Seq"
 
 - name: hisat2
   owner: iuc
@@ -56,10 +76,6 @@ tools:
   owner: devteam
   tool_panel_section_label: "RNA-Seq"
 
-- name: suite_viennarna
-  owner: rnateam
-  tool_panel_section_label: "RNA-Seq"
-
 - name: rseqc
   owner: nilesh
   tool_panel_section_label: "RNA-Seq"
@@ -80,6 +96,16 @@ tools:
 - name: suite_samtools_1_2
   owner: devteam
   tool_panel_section_label: "RNA-Seq"
+
+- name: bwa
+  owner: devteam
+  tool_panel_section_label: "RNA-Seq"
+
+# RNA Structure Analysis
+
+- name: suite_viennarna
+  owner: rnateam
+  tool_panel_section_label: "RNA Structure Analysis"
 
 # Graph/Display Data
 
