@@ -93,6 +93,10 @@ tools:
   owner: sarahinraauzeville
   tool_panel_section_label: "RNA-Seq"
 
+- name: suite_samtools_1_2
+  owner: devteam
+  tool_panel_section_label: "RNA-Seq"
+
 - name: bwa
   owner: devteam
   tool_panel_section_label: "RNA-Seq"
