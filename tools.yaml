@@ -70,7 +70,16 @@ tools:
 
 - name: data_manager_sortmerna_database_downloader
   owner: rnateam
+  tool_panel_section_label: "RNA-Seq"
   install_resolver_dependencies: false
+
+- name: star
+  owner: sarahinraauzeville
+  tool_panel_section_label: "RNA-Seq"
+
+- name: suite_samtools_1_2
+  owner: devteam
+  tool_panel_section_label: "RNA-Seq"
 
 # Graph/Display Data
 
