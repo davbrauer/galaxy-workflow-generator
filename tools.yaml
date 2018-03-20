@@ -22,11 +22,15 @@ tools:
   owner: pjbriggs
   tool_panel_section_label: "Quality Control"
 
-# SAM Tools
+# Utilities
 
 - name: suite_samtools_1_2
   owner: devteam
-  tool_panel_section_label: "SAM Tools"
+  tool_panel_section_label: "Utilities"
+
+- name: bedtools
+  owner: iuc
+  tool_panel_section_label: "Utilities"
 
 # deepTools
 
