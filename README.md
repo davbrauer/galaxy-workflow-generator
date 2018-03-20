@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/destair/galaxy-guided-rna-seq.svg?branch=master)](https://travis-ci.org/destair/galaxy-guided-rna-seq)
 [![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-guided-rna-seq/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-guided-rna-seq)
 
 Galaxy Workbench for guided RNA-Seq Analysis
