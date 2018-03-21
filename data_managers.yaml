@@ -1,0 +1,12 @@
+api_key: admin
+galaxy_instance: http://localhost:8080
+
+data_managers:
+
+- id: toolshed.g2.bx.psu.edu/repos/rnateam/data_manager_sortmerna_database_downloader/data_manager_sortmerna_download/2.1b.1
+  params:
+    - '': '{{ item }}'
+  items:
+    - ''
+  data_table_reload:
+    - rRNA_databases

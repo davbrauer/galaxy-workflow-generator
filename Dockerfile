@@ -14,9 +14,11 @@ ENV GALAXY_CONFIG_BRAND="RNA-Seq" \
     GALAXY_CONFIG_CONDA_AUTO_INIT=True
 
 COPY tools.yaml $GALAXY_ROOT/tools.yaml
+COPY data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 COPY workflows /tmp/workflows
 COPY guided_tours /tmp/guided_tours
 COPY webhooks /tmp/webhooks
+COPY web $GALAXY_CONFIG_DIR/web
         
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
     $GALAXY_CONDA_PREFIX/bin/conda clean --tarballs --yes > /dev/null && \
@@ -24,10 +26,14 @@ RUN install-tools $GALAXY_ROOT/tools.yaml && \
 
 RUN startup_lite && \
     galaxy-wait && \
-    workflow-install --workflow_path /tmp/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD && \
+    run-data-managers --config $GALAXY_ROOT/data_managers.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD --api_key $GALAXY_DEFAULT_ADMIN_KEY && \
+    workflow-install --workflow_path /tmp/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD --api_key $GALAXY_DEFAULT_ADMIN_KEY && \
     rm -rf /tmp/workflows
 
-RUN echo "destair is coming" > $GALAXY_CONFIG_WELCOME_URL && \
+RUN sed -i -r 's/(^\s*)#+(\s*require_login\s*=\s*).*/\1\2True/' $GALAXY_CONFIG_FILE && \
+    sed -i -r 's/(^\s*)#+(\s*brand\s*=\s*).*/\1\2de\.STAIR/' $GALAXY_CONFIG_FILE && \
+    sed -i -r 's/(^\s*)#+(\s*enable_quotas\s*=\s*).*/\1\2True/' $GALAXY_CONFIG_FILE && \
+    sed -i -r 's/(^\s*)#+(\s*show_welcome_with_login\s*=\s*).*/\1\2True/' $GALAXY_CONFIG_FILE && \
     mv /tmp/webhooks/switchtour $GALAXY_ROOT/config/plugins/webhooks && \
     rm -rf /tmp/webhooks && \
     mv /tmp/guided_tours/*yaml $GALAXY_ROOT/config/plugins/tours/ && \
