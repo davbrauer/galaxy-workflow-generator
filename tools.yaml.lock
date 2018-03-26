@@ -109,7 +109,7 @@ tools:
   tool_panel_section_label: "RNA-Seq"
 
 - changeset_revision:
-  - a1ea9af8d5f4
+  - e08a6a009088
   name: suite_cufflinks_2_2_1
   owner: devteam
   tool_panel_section_label: "RNA-Seq"
