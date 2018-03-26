@@ -93,13 +93,13 @@ Tool | Description | Reference
 To launch:
 
 ```
-docker run -d -p 8080:80 destairdenbi/galaxy-guided-rna-seq:latest
+docker run -d -p 8080:80 quay.io/destair/galaxy-guided-rna-seq:latest
 ```
 
 To launch with a permanent storage of databases, histories, etc:
 
 ```
-docker run -d -p 8080:80 -v ~/galaxy-guided-rna-seq_DB:/export destairdenbi/galaxy-guided-rna-seq:latest
+docker run -d -p 8080:80 -v ~/galaxy-guided-rna-seq_DB:/export quay.io/destair/galaxy-guided-rna-seq:latest
 ```
 
 To access:
@@ -113,7 +113,7 @@ http://localhost
 # Troubleshooting
     
 ```
-docker run --net host -d -p 8080:80 destairdenbi/galaxy-guided-rna-seq:latest
+docker run --net host -d -p 8080:80 quay.io/destair/galaxy-guided-rna-seq:latest
 ```
 
 For more details about this command line or specific usage, please consult the
@@ -123,7 +123,7 @@ For more details about this command line or specific usage, please consult the
 ```
 git clone --recursive https://github.com/destairdenbi/galaxy-guided-rna-seq.git
 cd galaxy-guided-rna-seq
-docker built -t destairdenbi/galaxy-guided-rna-seq:17.05 .
+docker built -t destair/galaxy-guided-rna-seq:latest .
 
 ```
 
