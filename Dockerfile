@@ -14,7 +14,6 @@ ENV GALAXY_CONFIG_BRAND="RNA-Seq" \
     GALAXY_CONFIG_CONDA_AUTO_INIT=True
 
 COPY tools.yaml $GALAXY_ROOT/tools.yaml
-COPY tools.yaml.lock $GALAXY_ROOT/tools.yaml.lock
 COPY data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 COPY workflows /tmp/workflows
 COPY guided_tours /tmp/guided_tours

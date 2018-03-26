@@ -1,5 +1,6 @@
 api_key: admin
 galaxy_instance: http://localhost:8080
+install_repository_dependencies: true
 install_resolver_dependencies: true
 install_tool_dependencies: false
 
@@ -9,34 +10,48 @@ tools:
 
 - name: fastqc
   owner: devteam
+  revisions:
+  - 'ff9530579d1f'
   tool_panel_section_label: "Quality Control"
 
 - name: multiqc
   owner: engineson
+  revisions:
+  - '5e4080791d90'
   tool_panel_section_label: "Quality Control"
 
 - name: trim_galore
   owner: bgruening
+  revisions:
+  - '949f01671246'
   tool_panel_section_label: "Quality Control"
 
 - name: trimmomatic
   owner: pjbriggs
+  revisions:
+  - 'dfa082f84068'
   tool_panel_section_label: "Quality Control"
 
 # Utilities
 
 - name: suite_samtools_1_2
   owner: devteam
+  revisions:
+  - '5b673ccc8747'
   tool_panel_section_label: "Utilities"
 
 - name: bedtools
   owner: iuc
+  revisions:
+  - '33c3ddea63c5'
   tool_panel_section_label: "Utilities"
 
 # deepTools
 
 - name: suite_deeptools
   owner: bgruening
+  revisions:
+  - '9552ff2e2634'
   tool_panel_section_label: "deepTools"
 
 # RNA-Seq
@@ -51,64 +66,94 @@ tools:
 
 - name: hisat2
   owner: iuc
+  revisions:
+  - '40e1083a4430'
   tool_panel_section_label: "RNA-Seq"
  
 - name: segemehl
   owner: rnateam
+  revisions:
+  - 'db367d012fa3'
   tool_panel_section_label: "RNA-Seq"
 
 - name: tophat2
   owner: devteam
+  revisions:
+  - '16c4255042be'
   tool_panel_section_label: "RNA-Seq"
 
 - name: featurecounts
   owner: iuc
+  revisions:
+  - 'e803ca6407c0'
   tool_panel_section_label: "RNA-Seq"
 
 - name: deseq2
   owner: iuc
+  revisions:
+  - '3660c9088494'
   tool_panel_section_label: "RNA-Seq"
 
 - name: htseq_count
   owner: lparsons
+  revisions:
+  - 'f1368427a79c'
   tool_panel_section_label: "RNA-Seq"
 
 - name: dexseq
   owner: iuc
+  revisions:
+  - '6e8b61c54ff3'
   tool_panel_section_label: "RNA-Seq"
 
 - name: suite_cufflinks_2_2_1
   owner: devteam
+  revisions:
+  - 'a1ea9af8d5f4'
   tool_panel_section_label: "RNA-Seq"
 
 - name: rseqc
   owner: nilesh
+  revisions:
+  - '080fd5739bb4'
   tool_panel_section_label: "RNA-Seq"
 
 - name: sortmerna
   owner: rnateam
+  revisions:
+  - '65c38d020fea'
   tool_panel_section_label: "RNA-Seq"
 
 - name: data_manager_sortmerna_database_downloader
   owner: rnateam
+  revisions:
+  - '7d2252852f96'
   install_resolver_dependencies: false
 
 - name: star
   owner: sarahinraauzeville
+  revisions:
+  - 'c4fc8ff6e280'
   tool_panel_section_label: "RNA-Seq"
 
 - name: bwa
   owner: devteam
+  revisions:
+  - '4f774c1e6049'
   tool_panel_section_label: "RNA-Seq"
 
 # RNA Structure Analysis
 
 - name: suite_viennarna
   owner: rnateam
+  revisions:
+  - '6aca8446c85c'
   tool_panel_section_label: "RNA Structure Analysis"
 
 # Graph/Display Data
 
 - name: jbrowse
   owner: iuc
+  revisions:
+  - '836d1aa3e89a'
   tool_panel_section_label: "Graph/Display Data"
