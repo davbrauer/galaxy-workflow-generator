@@ -133,7 +133,7 @@ tools:
 - name: rgrnastar
   owner: iuc
   revisions:
-  - 'c4fc8ff6e280'
+  - '2055c2667eb3'
   tool_panel_section_label: "RNA-Seq"
 
 - name: bwa
