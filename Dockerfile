@@ -6,6 +6,9 @@
 # troubleshoot parameter: --net host
 # access: http://localhost
 
+# docker exec -it <ID> bash
+# supervisorctl restart galaxy:
+
 FROM bgruening/galaxy-stable:17.05
 
 MAINTAINER de.STAIR destair@leibniz-fli.de
@@ -16,16 +19,13 @@ ENV GALAXY_CONFIG_BRAND="RNA-Seq" \
 
 COPY tools.yaml $GALAXY_ROOT/tools.yaml
 COPY data_managers.yaml $GALAXY_ROOT/data_managers.yaml
+COPY web $GALAXY_CONFIG_DIR/web
+
 COPY workflows /tmp/workflows
 COPY guided_tours /tmp/guided_tours
 COPY webhooks /tmp/webhooks
-COPY web $GALAXY_CONFIG_DIR/web
-
-####NEW - add submodule tools
 COPY tools /tmp/tools
-COPY tools/* /tmp
 COPY setup.sh /tmp/setup.sh
-####
         
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
     $GALAXY_CONDA_PREFIX/bin/conda clean --tarballs --yes > /dev/null && \
