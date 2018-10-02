@@ -7,3 +7,6 @@
 [submodule "workflows"]
 	path = workflows
 	url = https://github.com/destairdenbi/workflows.git
+[submodule "tools"]
+	path = tools
+	url = https://github.com/destairdenbi/tools.git
