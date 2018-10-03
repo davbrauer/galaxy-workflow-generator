@@ -26,4 +26,4 @@ rm -rf /tmp/webhooks
 mv /tmp/guided_tours/*yaml $GALAXY_ROOT/config/plugins/tours/
 rm -rf /tmp/guided_tours
 cp -r /tmp/tools/* $GALAXY_ROOT/tools
-mv -r /tmp/tools/* $GALAXY_ROOT/test-data
+mv /tmp/tools/* $GALAXY_ROOT/test-data
