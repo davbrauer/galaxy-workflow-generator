@@ -91,13 +91,19 @@ tools:
 - name: segemehl
   owner: rnateam
   revisions:
-  - 'db367d012fa3'
+  - '9c0d4ec99ba9'
   tool_panel_section_label: "RNA-Seq"
 
 - name: tophat2
   owner: devteam
   revisions:
   - '16c4255042be'
+  tool_panel_section_label: "RNA-Seq"
+
+- name: bwa-mem
+  owner: devteam
+  revisions:
+  - "8d2a528a9513"
   tool_panel_section_label: "RNA-Seq"
 
 - name: featurecounts
