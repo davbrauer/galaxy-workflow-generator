@@ -94,10 +94,10 @@ tools:
   - '16c4255042be'
   tool_panel_section_label: "RNA-Seq"
 
-- name: bwa-mem
+- name: bwa
   owner: devteam
   revisions:
-  - "8d2a528a9513"
+  - '8d2a528a9513'
   tool_panel_section_label: "RNA-Seq"
 
 - name: featurecounts
