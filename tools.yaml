@@ -38,6 +38,12 @@ tools:
   - 'dfa082f84068'
   tool_panel_section_label: "Quality Control"
 
+- name: sickle
+  owner: iuc
+  revisions:
+  - '3905ccd5c631'
+  tool_panel_section_label: "Quality Control"
+
 # Utilities
 
 - name: suite_samtools_1_2
