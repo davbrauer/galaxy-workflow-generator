@@ -63,13 +63,7 @@ tools:
 - name: ncbi_blast_plus
   owner: devteam
   revisions:
-  - '6f386c5dc4fb'
-  tool_panel_section_label: "Textsearch"
-
-- name: package_blast_plus_2_7_1
-  owner: iuc
-  revisions:
-  - '2e9109a8924f'
+  - 'c877294f8025'
   tool_panel_section_label: "Textsearch"
 
 # RNA-Seq
