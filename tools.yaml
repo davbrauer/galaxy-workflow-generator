@@ -20,6 +20,12 @@ tools:
   - '5e4080791d90'
   tool_panel_section_label: "Quality Control"
 
+- name: cutadapt
+  owner: lparsons
+  revisions:
+  - '660cffd8d92a'
+  tool_panel_section_label: "Quality Control"
+
 - name: trim_galore
   owner: bgruening
   revisions:
@@ -60,14 +66,6 @@ tools:
   - '2e9109a8924f'
   tool_panel_section_label: "Textsearch"
 
-# deepTools
-
-- name: suite_deeptools
-  owner: bgruening
-  revisions:
-  - '9552ff2e2634'
-  tool_panel_section_label: "deepTools"
-
 # RNA-Seq
 
 #- name: cummerbund
@@ -77,12 +75,6 @@ tools:
 #- name: cummerbund_to_tabular
 #  owner: devteam
 #  tool_panel_section_label: "RNA-Seq"
-
-- name: cutadapt
-  owner: lparsons
-  revisions:
-  - 'f5fdf41c08b8'
-  tool_panel_section_label: "RNA-Seq"
 
 - name: hisat2
   owner: iuc
