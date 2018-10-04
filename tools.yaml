@@ -154,12 +154,6 @@ tools:
   - '2055c2667eb3'
   tool_panel_section_label: "RNA-Seq"
 
-- name: bwa
-  owner: devteam
-  revisions:
-  - '4f774c1e6049'
-  tool_panel_section_label: "RNA-Seq"
-
 # RNA Structure Analysis
 
 - name: suite_viennarna
