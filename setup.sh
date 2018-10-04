@@ -10,10 +10,12 @@ sed -i -r 's/(^\s*)#+(\s*tool_path.+)/\1\2/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*conda_auto_install\s*=).*/\1\2 True/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*conda_auto_init\s*=).*/\1\2 True/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*conda_ensure_channels\s*=).*/\1\2 iuc,bioconda,conda-forge,defaults/' $GALAXY_CONFIG_FILE
+sed -i -r 's/(^\s*)#+(\s*new_user_dataset_access_role_default_private\s*=\s*).*/\1\2True/' $GALAXY_CONFIG_FILE
+sed -i -r 's/(^\s*)#+(\s*enable_quotas\s*=\s*).*/\1\2True/' $GALAXY_CONFIG_FILE
 
 head -4 $GALAXY_ROOT/config/tool_conf.xml.sample > $GALAXY_ROOT/config/tool_conf.xml
 echo '  </section>' >> $GALAXY_ROOT/config/tool_conf.xml
-echo '  <section id="visualization" name="visualization">' >> $GALAXY_ROOT/config/tool_conf.xml
+echo '  <section id="destair_visualization" name="de.STAIR Visualization">' >> $GALAXY_ROOT/config/tool_conf.xml
 for i in $(ls -d /tmp/tools/*/); do
 	echo '    <tool file="'$(basename $i)/$(basename $i).xml'" />'
 done >> $GALAXY_ROOT/config/tool_conf.xml
