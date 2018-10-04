@@ -26,13 +26,14 @@ COPY guided_tours /tmp/guided_tours
 COPY webhooks /tmp/webhooks
 COPY tools /tmp/tools
 COPY setup.sh /tmp/setup.sh
-        
+
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
     $GALAXY_CONDA_PREFIX/bin/conda clean --tarballs --yes > /dev/null && \
     rm -rf /export/galaxy-central/
 
 RUN startup_lite && \
     galaxy-wait && \
+    run-data-managers --config $GALAXY_ROOT/data_managers.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD --api_key $GALAXY_DEFAULT_ADMIN_KEY && \
     workflow-install --workflow_path /tmp/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD --api_key $GALAXY_DEFAULT_ADMIN_KEY && \
     rm -rf /tmp/workflows
 
