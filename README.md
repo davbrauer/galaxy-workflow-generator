@@ -13,6 +13,7 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
   - [Docker configuration](#docker-configuration)
   - [Launch](#launch)
   - [Credentials](#credentials)
+  - [How it works](#how-it-works)
 - [Available tools](#available-tools)
   - [Quality control](#quality-control)
   - [Read mapping](#read-mapping)
@@ -31,15 +32,15 @@ This Galaxy instance is provided as a Docker container, developed from [Docker G
 
 ## Requirements
 [Docker](https://www.docker.com/) can be installed in different ways:
-- For non-\*nix users, Kitematic provides a [Docker installation for both OSX and Windows](https://kitematic.com/)
-- For \*nix users, follow the [Docker installation for Linux](https://docs.docker.com/installation).
+- For non-unnix users, Kitematic provides a [Docker installation for both OSX and Windows](https://kitematic.com/)
+- For unix users, follow the [Docker installation for Linux](https://docs.docker.com/installation).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
 ## Launch
 The Galaxy Docker container can be launched in different ways:
-- For non-\*nix users, this can be achieved [from Kitematic's interface](https://www.youtube.com/watch?v=fYer4Xdw_h4)
-- For \*nix users, this can be achieved by
+- For non-unix users, this can be achieved [from Kitematic's interface](https://www.youtube.com/watch?v=fYer4Xdw_h4)
+- For unix users, this can be achieved by
 ```
 $ docker run -d -p 8080:80 https://quay.io/repository/destair/galaxy-guided-rna-seq
 ```
@@ -56,6 +57,33 @@ The Galaxy administrator user has
 - password: admin
 
 To be able to use the modular workflow generator, a user nees to be logged in.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+## How it works
+Here we show how the workflow generation takes place, and how users build their analyses.  
+The following scenario illustrates a differential gene expression analysis, whose best-practice steps are:
+- Data preprocessing and quality control
+- Mapping
+- Counting
+
+<p align="center">
+<img align="center" src="web/how-it-works.png" width="600px" alt="Galaxy Modular Workflow Generator for guided data analysis" valign="top"/>
+</p>
+
+**A**) An [interactive dialog](https://docs.galaxyproject.org/en/latest/admin/webhooks.html) asks the user how they intend to carry out data preprocessing and quality control. When a choice is selected, Galaxy launches the relative interactive tour to guide the user through tools, parametrisation, and the meaning of results.  
+
+**B**) Selected tools have alternative counterparts. For instance, Trim Galore! can be replaced by another sequence trimming tool. As a best-practice however, each trimming tool is execute before and after FastQC. At this point, a user wil run both FASTQC and Trim Galore! tours, and understand their functions, parametrisations, and outputs.  
+
+**C**) As the Data preprocessing phase ends, users are presented with another interactive dialog, asking which Mapping tool to use.  
+
+**D**) When the mapping phase ends, the counting phase starts. Once again, the modular workflow generator presents a set of best-practice tools, and users are requested to selected their tools of choice to complete the analysis.
+
+**E**) Finally, the workflows can be exported, and run on a different Galaxy instances.
+
+Before the modular workflow generation, *best practice workflows* were crafted from beginning to end, without presenting its users any alternative to carry out their analyses. With the present approach however, we break down a workflow in its phases, and show users alternative *best-practice tools* to build their workflows. This way,
+- Users can discover newly developed alternatives, and self train on a wider range of state-of-the-art tools;
+- Trainers can create flexible workflows to thread alternative best-practice tools into a single workflow.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
