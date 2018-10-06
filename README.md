@@ -10,7 +10,6 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
 
 - [Usage](#usage)
   - [Requirements](#requirements)
-  - [Docker configuration](#docker-configuration)
   - [Launch](#launch)
   - [Credentials](#credentials)
   - [How it works](#how-it-works)
@@ -21,7 +20,7 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
   - [Differential gene expression analysis](#differential-gene-expression-analysis)
   - [Utilities](#utilities)
 - [Contributors](#contributors)
-- [Support](#support)
+- [Support and bug reports](#support-and-bug-reporting)
 - [MIT license](#mit-license)
 
 
@@ -103,7 +102,7 @@ Tool | Description | Reference
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-## Read Mapping
+## Read mapping
 
 Tool | Description | Reference
 --- | --- | ---
@@ -158,7 +157,7 @@ Tool | Description | Reference
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-# Support & Bug Reports
+# Support and bug reports
 
 You can file an [issue](https://github.com/destairdenbi/galaxy-guided-rna-seq/issues), or contact us [here](https://destair.bioinf.uni-leipzig.de/about/).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
