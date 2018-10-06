@@ -20,7 +20,7 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
   - [Differential gene expression analysis](#differential-gene-expression-analysis)
   - [Utilities](#utilities)
 - [Contributors](#contributors)
-- [Support and bug reports](#support-and-bug-reporting)
+- [Support and bug reports](#support-and-bug-reports)
 - [MIT license](#mit-license)
 
 
