@@ -31,8 +31,8 @@ rm -rf /tmp/guided_tours
 cp -r /tmp/tools/* $GALAXY_ROOT/tools
 mv /tmp/tools/* $GALAXY_ROOT/test-data
 
-sed -i '$ d' $GALAXY_ROOT/config/tools/data_source/upload.xml
-cat << EOF >> $GALAXY_ROOT/config/tools/data_source/upload.xml
+sed -i '$ d' $GALAXY_ROOT/tools/data_source/upload.xml
+cat << EOF >> $GALAXY_ROOT/tools/data_source/upload.xml
   <citations>
     <citation type="bibtex">@Article{de.STARI-workflow-generator,                           
       author   = {Lott, Steffen C. and Wolfien, Markus and Riege, Konstantin and Bagnacani, Andrea and Wolkenhauer, Olaf and Hoffmann, Steve and Hess, Wolfgang R.},
