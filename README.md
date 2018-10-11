@@ -41,11 +41,25 @@ The Galaxy Docker container can be launched in different ways:
 - For non-unix users, this can be achieved [from Kitematic's interface](https://www.youtube.com/watch?v=fYer4Xdw_h4)
 - For unix users, this can be achieved by
 ```
-$ docker run -d -p 8080:80 https://quay.io/repository/destair/galaxy-guided-rna-seq
+$ docker run -d quay.io/repository/destair/galaxy-guided-rna-seq:latest
 ```
-The Galaxy instance will open in a browser window at the address
+The Galaxy instance can be accessed in a web browser via url
 ```
 localhost:8080
+```
+
+### Useful parameters
+Force Docker to directly open ports
+```
+docker run --net host [...]
+```
+Store Users, Histories, ..., Databases from container /export directory permanently on local disk drive
+```
+docker run -v </my/local/path>:/export [...]
+```
+Remap the ports for accessing Galaxy server e.g via url ```localhost```
+```
+docker run -p 8080:80 -p 8021:21 [...]
 ```
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
