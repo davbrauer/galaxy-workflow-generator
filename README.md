@@ -51,15 +51,15 @@ localhost:8080
 ### Useful parameters
 Force Docker to directly open ports
 ```
-docker run --net host
+docker run --net host [...]
 ```
 Store Users, Histories, ..., Databases from container /export directory permanently on local disk drive
 ```
-docker run -v </my/local/path>:/export ...
+docker run -v </my/local/path>:/export [...]
 ```
 Remap the ports for accessing Galaxy server e.g via url ```localhost```
 ```
-docker run -p 8080:80 -p 8021:21
+docker run -p 8080:80 -p 8021:21 [...]
 ```
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
