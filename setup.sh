@@ -26,8 +26,13 @@ sed -i -r 's/Get\s+Data/Upload Data/' $GALAXY_ROOT/integrated_tool_panel.xml
 
 mv /tmp/webhooks/* $GALAXY_ROOT/config/plugins/webhooks
 rm -rf /tmp/webhooks
+
 mv /tmp/guided_tours/*yaml $GALAXY_ROOT/config/plugins/tours/
 rm -rf /tmp/guided_tours
+
+
+# source $GALAXY_CONDA_PREFIX/bin/activate
+# conda install -y -c iuc -c bioconda -c conda-forge -c defaults $(grep -F 'requirement type' /tmp/tools/*/destair_heatmap.xml | sed -r 's/(.*)(version=")(.+)(">)(.+)(<.*)/\5=\3/' | xargs -echo)
 cp -r /tmp/tools/* $GALAXY_ROOT/tools
 mv /tmp/tools/* $GALAXY_ROOT/test-data
 
