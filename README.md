@@ -2,7 +2,7 @@
 [![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-guided-rna-seq/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-guided-rna-seq)
 
 Galaxy Modular Workflow Generator for guided data analysis
-============================================
+==========================================================
 
 The Galaxy Modular Workflow Generator is a self-contained Galaxy instance, comprising a set of analysis tools and related guided tours.  
 Guided tours are usually associated with consolidated workflows, composed of multiple tools, each of which is explained in terms of its function and parametrization options. However, such structure presents an analysis as monolithic: tools are pre-selected, and executed in cascade until the result is retrieved. With this unbreakable flow, users cannot readily appreciate the existence of alternative routes (tools) to compose their workflow analyses. At the same time, trainers willing to include such information within the designated training material, would have to continuously update every workflow mentioning each alternative tool.  
@@ -11,8 +11,9 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
 - [Usage](#usage)
   - [Requirements](#requirements)
   - [Launch](#launch)
-  - [Credentials](#credentials)
+  - [Login credentials](#login-credentials)
   - [How it works](#how-it-works)
+  - [Contributing](#contributing)
 - [Available tools](#available-tools)
   - [Quality control](#quality-control)
   - [Read mapping](#read-mapping)
@@ -25,7 +26,7 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
 
 
 # Usage
-This Galaxy instance is provided as a Docker container, developed from [Docker Galaxy Stable](https://github.com/bgruening/docker-galaxy-stable). To run it, you only need to have [Docker](https://www.docker.com/) set up.
+This Galaxy instance is provided as a Docker container, developed from [Docker Galaxy Stable](https://github.com/bgruening/docker-galaxy-stable). Whether you are a user, a developer, or an administrator, you only need to have [Docker](https://www.docker.com/) set up to run the container.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
@@ -41,30 +42,15 @@ The Galaxy Docker container can be launched in different ways:
 - For non-unix users, this can be achieved [from Kitematic's interface](https://www.youtube.com/watch?v=fYer4Xdw_h4)
 - For unix users, this can be achieved by
 ```
-$ docker run -d quay.io/repository/destair/galaxy-guided-rna-seq:latest
+$ docker run -d -p 8080:80 destair/galaxy-guided-rna-seq:latest
 ```
-The Galaxy instance can be accessed in a web browser via url
+After that, the Galaxy instance can be accessed in a web browser at
 ```
 localhost:8080
 ```
 
-### Useful parameters
-Force Docker to directly open ports
-```
-docker run --net host [...]
-```
-Store Users, Histories, ..., Databases from container /export directory permanently on local disk drive
-```
-docker run -v </my/local/path>:/export [...]
-```
-Remap the ports for accessing Galaxy server e.g via url ```localhost```
-```
-docker run -p 8080:80 -p 8021:21 [...]
-```
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-
-## Credentials
+## Login credentials
 The Galaxy administrator user has
 - username: admin@galaxy.org
 - password: admin
@@ -100,11 +86,57 @@ Before the modular workflow generation, *best practice workflows* were crafted f
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
+## Contributing
+
+For advanced usage options, consider referring to the [Docker manual](http://docs.docker.io/). Here, we list a few quick tips for testing and extending the container locally.
+
+#### Ports and storage
+
+Force Docker to directly open ports:
+
+``
+docker run --net host [...]
+``
+
+Store Users, Histories, ..., Databases from container /export directory permanently on local disk drive:
+
+``
+docker run -v /absolute/path/to/local/directory/:/export/ [...]
+``
+
+Remap the ports for accessing Galaxy server e.g via url ``localhost``:
+
+``
+docker run -p 8080:80 -p 8021:21 [...]
+``
+
+#### Webhook
+For testing the Galaxy webhook, [follow this procedure](https://github.com/destairdenbi/webhooks).
+
+#### Tours
+For creating a new interactive tour, [follow this procedure](https://galaxyproject.github.io/training-material/topics/dev/tutorials/interactive-tours/slides.html#1). For testing a new tour within the Galaxy instance, launch the Docker container with an attached local volume:
+
+``
+docker run -d -p 8080:80 -v /absolute/path/to/local/directory/:/export/ destair/galaxy-guided-rna-seq:latest
+``
+
+Then copy your new tutorial into
+
+``
+/absolute/path/to/local/directory/galaxy-central/config/plugins/tours
+``
+
+Reload the Galaxy Docker container
+
+``
+docker exec CONTAINER_ID supervisorctl restart galaxy:
+``
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
 # Available tools
 
-
 ## Quality control
-
 Tool | Description | Reference
 --- | --- | ---
 [Cutadapt](https://cutadapt.readthedocs.io/en/stable) | Error-tolerant adapter removal tool for High-Throughput Sequencing reads | [Martin 2011](https://doi.org/10.14806/ej.17.1.200)
@@ -117,7 +149,6 @@ Tool | Description | Reference
 
 
 ## Read mapping
-
 Tool | Description | Reference
 --- | --- | ---
 [Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml) | Fast and sensitive read alignment | [Langmead et al. 2012](https://doi.org/10.1038/nmeth.1923) 
@@ -130,7 +161,6 @@ Tool | Description | Reference
 
 
 ## RNA structure prediction and analysis
-
 Tool | Description | Reference
 --- | --- | ---
 [ViennaRNA](https://www.tbi.univie.ac.at/RNA/) | A software library of tools for predicting and comparing RNA secondary structures | [Lorenz et al. 2011](https://doi.org/10.1186/1748-7188-6-26)
@@ -138,7 +168,6 @@ Tool | Description | Reference
 
 
 ## Differential gene expression analysis
-
 Tool | Description | Reference
 --- | --- | ---
 [Cufflinks](https://github.com/cole-trapnell-lab/cufflinks) | Estimation of transcripts abundances, and tests for differential expression and regulation in RNA-Seq samples | [Trapnell et al. 2012](https://doi.org/10.1038/nbt.2450)
@@ -151,7 +180,6 @@ Tool | Description | Reference
 
 
 ## Utilities
-
 Tool | Description | Reference
 --- | --- | ---
 [SAMtools](https://samtools.sourceforge.net/) | Utilities for manipulating alignments in the SAM format | [Heng et al. 2009](https://doi.org/10.1093/bioinformatics/btp352)
@@ -161,7 +189,6 @@ Tool | Description | Reference
 
 
 # Contributors
-
  - [Andrea Bagnacani](https://github.com/bagnacan)
  - [Bérénice Batut](https://github.com/bebatut)
  - [Björn Grüning](https://github.com/bgruening)
@@ -172,13 +199,11 @@ Tool | Description | Reference
 
 
 # Support and bug reports
-
 You can file an [issue](https://github.com/destairdenbi/galaxy-guided-rna-seq/issues), or contact us [here](https://destair.bioinf.uni-leipzig.de/about/).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
 # MIT license
-
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
 in the Software without restriction, including without limitation the rights
