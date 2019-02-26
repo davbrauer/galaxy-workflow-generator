@@ -21,7 +21,8 @@ docker_build:
 	sudo useradd -u $(GALAXY_UID) -r -g $(GALAXY_TRAVIS_USER) -d $(GALAXY_HOME) -p travis_testing -c "Galaxy user" $(GALAXY_TRAVIS_USER)
 	sudo mkdir $(GALAXY_HOME)
 	sudo chown -R $(GALAXY_TRAVIS_USER):$(GALAXY_TRAVIS_USER) $(GALAXY_HOME)
-	docker build -t galaxy-flavor/test .
+	docker pull bgruening/galaxy-stable:17.05
+	docker build --pull --cache-from bgruening/galaxy-stable:17.05 -t galaxy-flavor/test .
 
 docker_run:
 	docker run -d -p 8080:80 \
