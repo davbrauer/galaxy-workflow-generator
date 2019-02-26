@@ -11,37 +11,26 @@ tools:
 - name: fastqc
   owner: devteam
   revisions:
-  - 'ff9530579d1f'
-  tool_panel_section_label: "Quality Control"
-
-- name: multiqc
-  owner: engineson
-  revisions:
-  - '5e4080791d90'
   tool_panel_section_label: "Quality Control"
 
 - name: cutadapt
   owner: lparsons
   revisions:
-  - '660cffd8d92a'
   tool_panel_section_label: "Quality Control"
 
 - name: trim_galore
   owner: bgruening
   revisions:
-  - '949f01671246'
   tool_panel_section_label: "Quality Control"
 
 - name: trimmomatic
   owner: pjbriggs
   revisions:
-  - 'dfa082f84068'
   tool_panel_section_label: "Quality Control"
 
 - name: sickle
   owner: iuc
   revisions:
-  - '3905ccd5c631'
   tool_panel_section_label: "Quality Control"
 
 # Utilities
@@ -49,13 +38,11 @@ tools:
 - name: suite_samtools_1_2
   owner: devteam
   revisions:
-  - '5b673ccc8747'
   tool_panel_section_label: "Utilities"
 
 - name: bedtools
   owner: iuc
   revisions:
-  - '33c3ddea63c5'
   tool_panel_section_label: "Utilities"
 
 # Textsearch
@@ -63,127 +50,93 @@ tools:
 - name: ncbi_blast_plus
   owner: devteam
   revisions:
-  - 'c877294f8025'
   tool_panel_section_label: "Textsearch"
 
 # RNA-Seq
 
-#- name: cummerbund
-#  owner: devteam
-#  tool_panel_section_label: "RNA-Seq"
-
-#- name: cummerbund_to_tabular
-#  owner: devteam
-#  tool_panel_section_label: "RNA-Seq"
-
 - name: hisat2
   owner: iuc
   revisions:
-  - '40e1083a4430'
   tool_panel_section_label: "RNA-Seq"
  
 - name: segemehl
   owner: rnateam
   revisions:
-  - '9c0d4ec99ba9'
   tool_panel_section_label: "RNA-Seq"
 
 - name: tophat2
   owner: devteam
   revisions:
-  - '16c4255042be'
   tool_panel_section_label: "RNA-Seq"
 
 - name: bwa
   owner: devteam
   revisions:
-  - '8d2a528a9513'
   tool_panel_section_label: "RNA-Seq"
 
 - name: featurecounts
   owner: iuc
   revisions:
-  - 'e803ca6407c0'
   tool_panel_section_label: "RNA-Seq"
 
 - name: deseq2
   owner: iuc
   revisions:
-  - '3660c9088494'
   tool_panel_section_label: "RNA-Seq"
 
 - name: htseq_count
   owner: lparsons
   revisions:
-  - 'f1368427a79c'
   tool_panel_section_label: "RNA-Seq"
 
 - name: dexseq
   owner: iuc
   revisions:
-  - '6e8b61c54ff3'
   tool_panel_section_label: "RNA-Seq"
 
 - name: suite_cufflinks_2_2_1
   owner: devteam
   revisions:
-  - 'e08a6a009088'
   tool_panel_section_label: "RNA-Seq"
 
 - name: rseqc
   owner: nilesh
   revisions:
-  - '080fd5739bb4'
   tool_panel_section_label: "RNA-Seq"
 
 - name: sortmerna
   owner: rnateam
   revisions:
-  - '65c38d020fea'
   tool_panel_section_label: "RNA-Seq"
 
 - name: data_manager_sortmerna_database_downloader
   owner: rnateam
   revisions:
-  - '7d2252852f96'
   install_resolver_dependencies: false
 
 - name: rgrnastar
   owner: iuc
   revisions:
-  - '2055c2667eb3'
   tool_panel_section_label: "RNA-Seq"
-
-# RNA Structure Analysis
-
-- name: suite_viennarna
-  owner: rnateam
-  revisions:
-  - '6aca8446c85c'
-  tool_panel_section_label: "RNA Structure Analysis"
 
 # Graph/Display Data
 
 - name: jbrowse
   owner: iuc
   revisions:
-  - '836d1aa3e89a'
   tool_panel_section_label: "Graph/Display Data"
 
 - name: gi2taxonomy
   owner: devteam
   revisions:
-  - '7b1b03c4465d'
   tool_panel_section_label: "Graph/Display Data"
 
 - name: lca_wrapper
   owner: devteam
   revisions:
-  - '33e8ed5a4601'
   tool_panel_section_label: "Graph/Display Data"
 
 - name: t2ps
   owner: devteam
   revisions:
-  - '4d9910e996f7'
   tool_panel_section_label: "Graph/Display Data"
