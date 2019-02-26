@@ -1,5 +1,5 @@
-[![Build Status](https://travis-ci.org/destair/galaxy-guided-rna-seq.svg?branch=master)](https://travis-ci.org/destair/galaxy-guided-rna-seq)
-[![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-guided-rna-seq/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-guided-rna-seq)
+[![Build Status](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator.svg?branch=master)](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator)
+[![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-modular-workflow-generator/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-modular-workflow-generator)
 
 Galaxy Modular Workflow Generator for guided data analysis
 ==========================================================
@@ -13,7 +13,7 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
   - [Launch](#launch)
   - [Login credentials](#login-credentials)
   - [How it works](#how-it-works)
-  - [Contributing](#contributing)
+  - [Advanced usage](#advanced-usage)
 - [Available tools](#available-tools)
   - [Quality control](#quality-control)
   - [Read mapping](#read-mapping)
@@ -26,13 +26,13 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
 
 
 # Usage
-This Galaxy instance is provided as a Docker container, developed from [Docker Galaxy Stable](https://github.com/bgruening/docker-galaxy-stable). Whether you are a user, a developer, or an administrator, you only need to have [Docker](https://www.docker.com/) set up to run the container.
+This Galaxy instance is provided as a Docker container, developed from [Docker Galaxy Stable](https://github.com/bgruening/docker-galaxy-stable). Whether you are a user, a developer, or an administrator, you only need to have [Docker](https://www.docker.com/) set up to run the container. Here we illustrate how to do so.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
 ## Requirements
 [Docker](https://www.docker.com/) can be installed in different ways:
-- For non-unnix users, Kitematic provides a [Docker installation for both OSX and Windows](https://kitematic.com/)
+- For non-unix users, Kitematic provides a [Docker installation for both OSX and Windows](https://kitematic.com/)
 - For unix users, follow the [Docker installation for Linux](https://docs.docker.com/installation).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
@@ -42,12 +42,13 @@ The Galaxy Docker container can be launched in different ways:
 - For non-unix users, this can be achieved [from Kitematic's interface](https://www.youtube.com/watch?v=fYer4Xdw_h4)
 - For unix users, this can be achieved by
 ```
-$ docker run -d -p 8080:80 destair/galaxy-guided-rna-seq:latest
+$ docker run -d -p 8080:80 destair/galaxy-modular-workflow-generator:latest
 ```
 After that, the Galaxy instance can be accessed in a web browser at
 ```
 localhost:8080
 ```
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
 ## Login credentials
@@ -86,12 +87,13 @@ Before the modular workflow generation, *best practice workflows* were crafted f
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-## Contributing
+## Advanced usage
 
 For advanced usage options, consider referring to the [Docker manual](http://docs.docker.io/). Here, we list a few quick tips for testing and extending the container locally.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-#### Ports and storage
 
+### Ports and storage
 Force Docker to directly open ports:
 
 ``
@@ -109,15 +111,19 @@ Remap the ports for accessing Galaxy server e.g via url ``localhost``:
 ``
 docker run -p 8080:80 -p 8021:21 [...]
 ``
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-#### Webhook
+
+### Webhook
 For testing the Galaxy webhook, [follow this procedure](https://github.com/destairdenbi/webhooks).
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-#### Tours
+
+### Tours
 For creating a new interactive tour, [follow this procedure](https://galaxyproject.github.io/training-material/topics/dev/tutorials/interactive-tours/slides.html#1). For testing a new tour within the Galaxy instance, launch the Docker container with an attached local volume:
 
 ``
-docker run -d -p 8080:80 -v /absolute/path/to/local/directory/:/export/ destair/galaxy-guided-rna-seq:latest
+docker run -d -p 8080:80 -v /absolute/path/to/local/directory/:/export/ destair/galaxy-modular-workflow-generator:latest
 ``
 
 Then copy your new tutorial into
@@ -190,8 +196,6 @@ Tool | Description | Reference
 
 # Contributors
  - [Andrea Bagnacani](https://github.com/bagnacan)
- - [Bérénice Batut](https://github.com/bebatut)
- - [Björn Grüning](https://github.com/bgruening)
  - [Steffen Lott](https://github.com/lotts)
  - [Konstantin Riege](https://github.com/koriege)
  - [Markus Wolfien](https://github.com/mwolfien)
@@ -199,7 +203,7 @@ Tool | Description | Reference
 
 
 # Support and bug reports
-You can file an [issue](https://github.com/destairdenbi/galaxy-guided-rna-seq/issues), or contact us [here](https://destair.bioinf.uni-leipzig.de/about/).
+You can file an [issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues), or contact us [here](https://destair.bioinf.uni-leipzig.de/about/).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
