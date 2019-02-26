@@ -146,10 +146,9 @@ docker exec CONTAINER_ID supervisorctl restart galaxy:
 Tool | Description | Reference
 --- | --- | ---
 [Cutadapt](https://cutadapt.readthedocs.io/en/stable) | Error-tolerant adapter removal tool for High-Throughput Sequencing reads | [Martin 2011](https://doi.org/10.14806/ej.17.1.200)
-[FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) | A quality control tool for high throughput sequence data | -
-[MultiQC](https://github.com/ewels/MultiQC) | Bioinformatics analysis result aggregator | -
+[FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) | A quality control tool for high throughput sequence data |
 [Sickle](https://github.com/najoshi/sickle) | Windowed adaptive trimming tool for FASTQ files | Joshi et al. 2011
-[Trim Galore!](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) | Quality control tool for read trimming and filtering of NGS data | -
+[Trim Galore!](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) | Quality control tool for read trimming and filtering of NGS data |
 [Trimmomatic](https://www.usadellab.org/cms/?page=trimmomatic) | Quality control tool for read trimming and filtering of Illumina NGS data | [Bolger et al. 2014](https://doi.org/10.1093/bioinformatics/btu170)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
@@ -158,26 +157,18 @@ Tool | Description | Reference
 Tool | Description | Reference
 --- | --- | ---
 [Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml) | Fast and sensitive read alignment | [Langmead et al. 2012](https://doi.org/10.1038/nmeth.1923) 
-[BWA](https://bio-bwa.sourceforge.net/) | Software package for mapping low-divergent sequences against a large reference genome | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
+[BWA](https://bio-bwa.sourceforge.net/) | Burrows-Wheeler Aligner for mapping low-divergent sequences against a large reference genome | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
+[BWA-MEM](https://bio-bwa.sourceforge.net/) | Fast and accurate long-read alignment with Burrows-Wheeler transform | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
 [HISAT2](https://ccb.jhu.edu/software/hisat2/) | Hierarchical indexing for spliced alignment of transcripts | [Pertea et al. 2016](https://doi.org/10.1038/nprot.2016.095)
 [Segemehl](https://www.bioinf.uni-leipzig.de/Software/segemehl/) | Short sequence read to reference genome mapper | [Hoffmann et al. 2009](https://doi.org/10.1371/journal.pcbi.1000502)
-[STAR](https://github.com/alexdobin/STAR) | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://academic.oup.com/bioinformatics/article/29/1/15/272537/STAR-ultrafast-universal-RNA-seq-aligner)
+[STAR](https://github.com/alexdobin/STAR) | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
 [TopHat](https://ccb.jhu.edu/software/tophat/index.shtml) | Splice junction mapper for RNA-Seq reads. TopHat aligns RNA-Seq reads to mammalian-sized genomes using the short read aligner Bowtie, then analyzes the results to identify splice junctions between exons | [Trapnell et al. 2009](https://doi.org/10.1093/bioinformatics/btp120)
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-
-## RNA structure prediction and analysis
-Tool | Description | Reference
---- | --- | ---
-[ViennaRNA](https://www.tbi.univie.ac.at/RNA/) | A software library of tools for predicting and comparing RNA secondary structures | [Lorenz et al. 2011](https://doi.org/10.1186/1748-7188-6-26)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
 ## Differential gene expression analysis
 Tool | Description | Reference
 --- | --- | ---
-[Cufflinks](https://github.com/cole-trapnell-lab/cufflinks) | Estimation of transcripts abundances, and tests for differential expression and regulation in RNA-Seq samples | [Trapnell et al. 2012](https://doi.org/10.1038/nbt.2450)
-[CummeRbund](https://compbio.mit.edu/cummeRbund/) | Visualize Cufflinks RNA-Seq output | -
 [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) | Differential gene expression analysis based on the negative binomial distribution | [Love et al. 2014](https://doi.org/10.1186/s13059-014-0550-8)
 [DeXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html) | Differential exon usage, using RNA-seq exon counts between samples with different experimental designs | [Anders et al. 2012](https://doi.org/10.1101/gr.133744.111)
 [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) | Genomic feature read count tool for summarising of genes, exons, and promoter counts | [Liao et al. 2014](https://doi.org/10.1093/bioinformatics/btt656)
