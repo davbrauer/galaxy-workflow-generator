@@ -10,133 +10,108 @@ tools:
 
 - name: fastqc
   owner: devteam
-  revisions:
   tool_panel_section_label: "Quality Control"
 
 - name: cutadapt
   owner: lparsons
-  revisions:
   tool_panel_section_label: "Quality Control"
 
 - name: trim_galore
   owner: bgruening
-  revisions:
   tool_panel_section_label: "Quality Control"
 
 - name: trimmomatic
   owner: pjbriggs
-  revisions:
   tool_panel_section_label: "Quality Control"
 
 - name: sickle
   owner: iuc
-  revisions:
   tool_panel_section_label: "Quality Control"
 
 # Utilities
 
 - name: suite_samtools_1_2
   owner: devteam
-  revisions:
   tool_panel_section_label: "Utilities"
 
 - name: bedtools
   owner: iuc
-  revisions:
   tool_panel_section_label: "Utilities"
 
 # Textsearch
 
 - name: ncbi_blast_plus
   owner: devteam
-  revisions:
   tool_panel_section_label: "Textsearch"
 
 # RNA-Seq
 
 - name: hisat2
   owner: iuc
-  revisions:
   tool_panel_section_label: "RNA-Seq"
- 
+
 - name: segemehl
   owner: rnateam
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: tophat2
   owner: devteam
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: bwa
   owner: devteam
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: featurecounts
   owner: iuc
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: deseq2
   owner: iuc
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: htseq_count
   owner: lparsons
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: dexseq
   owner: iuc
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: suite_cufflinks_2_2_1
   owner: devteam
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: rseqc
   owner: nilesh
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: sortmerna
   owner: rnateam
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 - name: data_manager_sortmerna_database_downloader
   owner: rnateam
-  revisions:
   install_resolver_dependencies: false
 
 - name: rgrnastar
   owner: iuc
-  revisions:
   tool_panel_section_label: "RNA-Seq"
 
 # Graph/Display Data
 
 - name: jbrowse
   owner: iuc
-  revisions:
   tool_panel_section_label: "Graph/Display Data"
 
 - name: gi2taxonomy
   owner: devteam
-  revisions:
   tool_panel_section_label: "Graph/Display Data"
 
 - name: lca_wrapper
   owner: devteam
-  revisions:
   tool_panel_section_label: "Graph/Display Data"
 
 - name: t2ps
   owner: devteam
-  revisions:
   tool_panel_section_label: "Graph/Display Data"
