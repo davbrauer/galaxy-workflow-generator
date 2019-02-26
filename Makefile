@@ -24,8 +24,8 @@ docker_build:
 	docker build -t galaxy-flavor/test .
 
 docker_run:
-	docker run -d -p 8080:80 -p 8021:21 -p 8022:22 \
-		--name galaxy_flavor_test \
+	docker run -d -p 8080:80 \
+		--name galaxy_test \
 		--privileged=true \
 		-e GALAXY_CONFIG_ALLOW_USER_DATASET_PURGE=True \
 		-e GALAXY_CONFIG_ALLOW_LIBRARY_PATH_PASTE=True \
@@ -34,7 +34,7 @@ docker_run:
 		-v /tmp/:/tmp/ \
 		galaxy-flavor/test
 	docker ps
-	docker exec -i -t galaxy_flavor_test galaxy-wait -v
+	docker exec -i -t galaxy_test galaxy-wait -v
 
 sleep:
 	sleep 60
@@ -61,4 +61,4 @@ test_bioblend:
 
 test_docker_in_docker:	
 	# Test Docker in Docker, used by Interactive Environments; This needs to be at the end as Docker takes some time to start.
-	docker exec -i -t galaxy_flavor_test docker info
+	docker exec -i -t galaxy_test docker info
