@@ -74,10 +74,6 @@ tools:
   owner: lparsons
   tool_panel_section_label: "RNA-Seq"
 
-- name: dexseq
-  owner: iuc
-  tool_panel_section_label: "RNA-Seq"
-
 - name: suite_cufflinks_2_2_1
   owner: devteam
   tool_panel_section_label: "RNA-Seq"
