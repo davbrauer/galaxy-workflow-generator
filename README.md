@@ -42,7 +42,7 @@ The Galaxy Docker container can be launched in different ways:
 - For non-unix users, this can be achieved [from Kitematic's interface](https://www.youtube.com/watch?v=fYer4Xdw_h4)
 - For unix users, this can be achieved by
 ```
-$ docker run -d -p 8080:80 destair/galaxy-modular-workflow-generator:latest
+$ docker run -d -p 8080:80 quay.io/destair/galaxy-modular-workflow-generator:latest
 ```
 After that, the Galaxy instance can be accessed in a web browser at
 ```
