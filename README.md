@@ -154,6 +154,8 @@ https://github.com/destairdenbi/galaxy-modular-workflow-generator/blob/master/CO
 # Contributors
 
  - [Andrea Bagnacani](https://github.com/bagnacan)
+ - [Bérénice Batut](https://github.com/bebatut)
+ - [Björn Grüning](https://github.com/bgruening)
  - [Steffen Lott](https://github.com/lotts)
  - [Konstantin Riege](https://github.com/koriege)
  - [Markus Wolfien](https://github.com/mwolfien)
