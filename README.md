@@ -140,7 +140,7 @@ Tool | Description | Reference
 
 # Support and bug reports
 
-If you have questions or don't know how to solve a problem using the provided Galaxy instance, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues).
+If you have questions, or don't know how to solve a problem using the provided Galaxy instance, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues).
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
