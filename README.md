@@ -140,13 +140,14 @@ Tool | Description | Reference
 
 # Support and bug reports
 
-You can file an [issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues), or contact us [here](https://destair.bioinf.uni-leipzig.de/about/).
+If you have questions or don't know how to solve a problem using the provided Galaxy instance, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues).
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 # Contributing
 
-New contributions are always welcome. Please read [these instructions](https://github.com/destairdenbi/galaxy-modular-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
+New contributions are always welcome. Please read [these instructions](
+https://github.com/destairdenbi/galaxy-modular-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
