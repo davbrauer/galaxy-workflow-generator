@@ -109,7 +109,7 @@ Tool | Description | Reference
 [BWA](https://bio-bwa.sourceforge.net/) | Burrows-Wheeler Aligner for mapping low-divergent sequences against a large reference genome | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
 [BWA-MEM](https://bio-bwa.sourceforge.net/) | Fast and accurate long-read alignment with Burrows-Wheeler transform | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
 [HISAT2](https://ccb.jhu.edu/software/hisat2/) | Hierarchical indexing for spliced alignment of transcripts | [Pertea et al. 2016](https://doi.org/10.1038/nprot.2016.095)
-[Segemehl](https://www.bioinf.uni-leipzig.de/Software/segemehl/) | Short sequence read to reference genome mapper | [Hoffmann et al. 2009](https://doi.org/10.1371/journal.pcbi.1000502)
+[Segemehl](https://www.bioinf.uni-leipzig.de/Software/segemehl/) | Short sequence read to reference genome mapper | [Otto et al. 2014](https://doi.org/10.1093/bioinformatics/btu146)
 [STAR](https://github.com/alexdobin/STAR) | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
 [TopHat](https://ccb.jhu.edu/software/tophat/index.shtml) | Splice junction mapper for RNA-Seq reads. TopHat aligns RNA-Seq reads to mammalian-sized genomes using the short read aligner Bowtie, then analyzes the results to identify splice junctions between exons | [Trapnell et al. 2009](https://doi.org/10.1093/bioinformatics/btp120)
 
