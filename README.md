@@ -29,23 +29,37 @@ This Galaxy instance is provided as a Docker container, developed from [Docker G
 
 ## Requirements
 
-[Docker](https://www.docker.com/) can be installed in different ways:
-- For non-unix users, Kitematic provides a [Docker installation for both OSX and Windows](https://kitematic.com/)
-- For unix users, follow the [Docker installation for Linux](https://docs.docker.com/installation).
+The only requirement is [Docker](https://www.docker.com/), which can be installed in different ways depending on your system:
+- Unix users should follow the [Docker installation for Linux](https://docs.docker.com/installation)
+- MacOS 10.12+ users should follow the [Docker installation for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
+- Windows 10+ users, should follow the [Docker installation for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+- Non-unix users whose operative system version is older than the aforementioned one, can rely on [Kitematic](https://kitematic.com/)
+
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 ## Launch
 
-The Galaxy Docker container can be launched in different ways:
-- For non-unix users, this can be achieved [from Kitematic's interface](https://www.youtube.com/watch?v=fYer4Xdw_h4)
-- For unix users, this can be achieved by
+The Galaxy Docker container can be launched in different ways.
+
+### Without Kitematic
+
+Users not relying on Kitematic can open a terminal, or a Windows PowerShell if on Windows, and type:
+
 ```
 $ docker run -d -p 8080:80 quay.io/destair/galaxy-modular-workflow-generator:latest
 ```
-After that, the Galaxy instance can be accessed in a web browser at
+
+After that, the Galaxy instance can be accessed in a web browser at:
+
 ```
 localhost:8080
 ```
+
+We recommend using Google Chrome, Chromium, or Mozilla Firefox.
+
+### With Kitematic
+
+Kitematic users can instead launch the Galaxy instance by following [these instructions](https://docs.docker.com/kitematic/userguide/).
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
