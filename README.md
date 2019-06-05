@@ -16,7 +16,6 @@ To overcome these limitations, in the Galaxy Modular Workflow Generator we provi
 - [Available tools](#available-tools)
   - [Quality control](#quality-control)
   - [Read mapping](#read-mapping)
-  - [RNA structure prediction and analysis](#rna-structure-prediction-and-analysis)
   - [Differential gene expression analysis](#differential-gene-expression-analysis)
   - [Utilities](#utilities)
 - [Support and bug reports](#support-and-bug-reports)
