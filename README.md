@@ -65,11 +65,11 @@ Kitematic users can instead launch the Galaxy instance by following [these instr
 
 ## Login credentials
 
-The Galaxy administrator user has
-- username: admin@galaxy.org
-- password: admin
+To be able to use the modular workflow generator, a user nees to be logged in. 
 
-To be able to use the modular workflow generator, a user nees to be logged in.
+- If you don't have one, please create it using the link provided at the top right corner
+- If you have one, please enter your credentials in the form at the top right corner
+- Galaxy administrators can instead use the default credentials username: `admin`, password: `admin`, and then change the settings later on
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
