@@ -26,7 +26,7 @@ For usage options, consider referring to the [Docker manual](https://docs.docker
 To build the Docker image locally, using the provided Dockerfile:
 
 ```
-docker build -t destairdenbi/galaxy-guided-rna-seq:17.05 .
+docker build -t destairdenbi/galaxy-modular-workflow-generator:17.05 .
 ```
 
 ### Port mapping
