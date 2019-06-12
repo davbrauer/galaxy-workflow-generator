@@ -17,21 +17,49 @@ If you are new to Git, try [this tutorial](https://try.github.com/) first. Addit
 - Your pull request will be reviewed and eventually merged.
 - To keep your copy aligned to the main repository, you need to [syncronise your fork](https://help.github.com/articles/syncing-a-fork/). Make sure to do this frequently.
 
-## Advanced usage, ports and storage
+## Using Docker
 
-For advanced usage options, consider referring to the [Docker manual](https://docs.docker.io/). Otherwise, here are some tips for modifying the service's underlying Docker container to remap ports and export its content in a directory on your system, 
-To do so, follow these procedures:
+For usage options, consider referring to the [Docker manual](https://docs.docker.io/). Otherwise, here are some tips for building, running, and modifying the service's underlying Docker container.
 
-- To make Docker exporting the contents of its ``/export`` directory on local disk:
+### Build the Docker image
 
-```
-docker run -v /absolute/path/to/local/directory/:/export/ [...]
-```
-
-- To remap the ports for accessing Galaxy server e.g via url ``localhost``:
+To build the Docker image locally, using the provided Dockerfile:
 
 ```
-docker run -p 8080:80 -p 8021:21 [...]
+docker build -t destairdenbi/galaxy-guided-rna-seq:17.05 .
+```
+
+### Port mapping
+
+To remap the ports for accessing Galaxy server e.g. via url ``localhost``:
+
+```
+docker run -p 8080:80 -p 8021:21 quay.io/destair/galaxy-modular-workflow-generator:latest
+```
+
+### Run the Docker image
+
+To run the Docker image locally:
+
+```
+docker run -d -p 8080:80 quay.io/destair/galaxy-modular-workflow-generator:latest
+
+```
+
+### Storage
+
+To run the Docker image and make Docker exporting the contents of its ``/export`` directory on local disk:
+
+```
+docker run -d -p 8080:80 -v /absolute/path/to/local/directory/:/export/ quay.io/destair/galaxy-modular-workflow-generator:latest
+```
+
+### Restart container
+
+To restart the running Docker container:
+
+```
+supervisorctl restart galaxy:
 ```
 
 ## Tours

@@ -1,14 +1,3 @@
-# Galaxy - de.STAIR
-# git clone --recursive https://github.com/destairdenbi/galaxy-guided-rna-seq.git
-# cd galaxy-guided-rna-seq
-# docker build -t destairdenbi/galaxy-guided-rna-seq:17.05 .
-# docker run -d -p 8080:80 -v ~/galaxy-guided-rna-seq_DB:/export destairdenbi/galaxy-guided-rna-seq:17.05
-# troubleshoot parameter: --net host
-# access: http://localhost
-
-# docker exec -it <ID> bash
-# supervisorctl restart galaxy:
-
 FROM bgruening/galaxy-stable:17.05
 
 MAINTAINER de.STAIR destair@leibniz-fli.de
