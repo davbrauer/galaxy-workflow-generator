@@ -1,4 +1,4 @@
-FROM bgruening/galaxy-stable:17.05
+FROM bgruening/galaxy-stable:19.01
 
 MAINTAINER de.STAIR destair@leibniz-fli.de
 
