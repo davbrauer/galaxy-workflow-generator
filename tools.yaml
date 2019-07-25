@@ -103,3 +103,11 @@ tools:
 - name: t2ps
   owner: devteam
   tool_panel_section_label: "Graph/Display Data"
+
+- name: bismark
+  owner: bgruening
+  tool_panel_section_label: "BS-Seq"
+
+- name: pileometh
+  owner: bgruening
+  tool_panel_section_label: "BS-Seq"
