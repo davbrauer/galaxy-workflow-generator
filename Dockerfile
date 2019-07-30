@@ -17,7 +17,7 @@ COPY tools /tmp/tools
 COPY setup.sh /tmp/setup.sh
 
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
-    $GALAXY_CONDA_PREFIX/bin/conda clean --tarballs --yes > /dev/null && \
+    $GALAXY_CONDA_PREFIX/bin/conda clean -y --all > /dev/null && \
     rm -rf /export/galaxy-central/
 
 RUN startup_lite && \

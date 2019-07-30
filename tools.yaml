@@ -30,7 +30,15 @@ tools:
 
 # Utilities
 
-- name: suite_samtools_1_2
+- name: samtool_filter2
+  owner: devteam
+  tool_panel_section_label: "Utilities"
+
+- name: samtools_sort
+  owner: devteam
+  tool_panel_section_label: "Utilities"
+
+- name: samtools_flagstat
   owner: devteam
   tool_panel_section_label: "Utilities"
 
@@ -38,11 +46,19 @@ tools:
   owner: iuc
   tool_panel_section_label: "Utilities"
 
-# Textsearch
+# Text processing
 
-- name: ncbi_blast_plus
+- name: text_processing
+  owner: bgruening
+  tool_panel_section_label: "Text processing"
+
+- name: replace_column_by_key_value_file
+  owner: bgruening
+  tool_panel_section_label: "Text processing"
+
+- name: column_maker
   owner: devteam
-  tool_panel_section_label: "Textsearch"
+  tool_panel_section_label: "Text processing"
 
 # RNA-Seq
 
@@ -82,32 +98,26 @@ tools:
   owner: rnateam
   install_resolver_dependencies: false
 
+- name: rcorrector
+  owner: iuc
+  tool_panel_section_label: "RNA-Seq"
+
 - name: rgrnastar
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
 
-# Graph/Display Data
-
-- name: jbrowse
-  owner: iuc
-  tool_panel_section_label: "Graph/Display Data"
-
-- name: gi2taxonomy
-  owner: devteam
-  tool_panel_section_label: "Graph/Display Data"
-
-- name: lca_wrapper
-  owner: devteam
-  tool_panel_section_label: "Graph/Display Data"
-
-- name: t2ps
-  owner: devteam
-  tool_panel_section_label: "Graph/Display Data"
+# BS/RRBS-Seq
 
 - name: bismark
   owner: bgruening
-  tool_panel_section_label: "BS-Seq"
+  tool_panel_section_label: "BS/RRBS-Seq"
 
 - name: pileometh
   owner: bgruening
-  tool_panel_section_label: "BS-Seq"
+  tool_panel_section_label: "BS/RRBS-Seq"
+
+# Annotation
+
+- name: gtftobed12
+  owner: iuc
+  tool_panel_section_label: "Annotation"
