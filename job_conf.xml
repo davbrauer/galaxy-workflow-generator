@@ -62,6 +62,5 @@
     </tools>
 
     <limits>
-    	<limit type="destination_total_concurrent_jobs">0</limit>
     </limits>
 </job_conf>
