@@ -9,6 +9,7 @@ ENV GALAXY_CONFIG_BRAND="RNA-Seq" \
 COPY tools.yaml $GALAXY_ROOT/tools.yaml
 COPY data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 COPY web $GALAXY_CONFIG_DIR/web
+COPY job_conf.xml $GALAXY_CONFIG_JOB_CONFIG_FILE
 
 COPY workflows /tmp/workflows
 COPY guided_tours /tmp/guided_tours

@@ -186,11 +186,11 @@ tools:
   owner: iuc
   tool_panel_section_label: "Nanopore Seq"
 
+# Genome Assembly/Alignment
+
 - name: canu
   owner: bgruening
   tool_panel_section_label: "Nanopore Seq"
-
-# Genome Assembly/Alignment
 
 - name: mummer_dnadiff
   owner: iuc
