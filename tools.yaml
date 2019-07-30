@@ -34,6 +34,14 @@ tools:
   owner: devteam
   tool_panel_section_label: "Utilities"
 
+- name: samtools_view
+  owner: iuc
+  tool_panel_section_label: "Utilities"
+
+- name: samtools_merge
+  owner: iuc
+  tool_panel_section_label: "Utilities"
+
 - name: samtools_sort
   owner: devteam
   tool_panel_section_label: "Utilities"
@@ -42,9 +50,21 @@ tools:
   owner: devteam
   tool_panel_section_label: "Utilities"
 
+- name: samtools_idxstats
+  owner: devteam
+  tool_panel_section_label: "Utilities"
+
 - name: bedtools
   owner: iuc
   tool_panel_section_label: "Utilities"
+
+- name: picard
+  owner: devteam
+  tool_panel_section_label: "Utilities"
+
+#- name: data_manager_picard_index_builder
+#  owner: devteam
+#  install_resolver_dependencies: false
 
 # Text processing
 
@@ -59,6 +79,16 @@ tools:
 - name: column_maker
   owner: devteam
   tool_panel_section_label: "Text processing"
+
+# Textsearch
+
+- name: ncbi_blast_plus
+  owner: devteam
+  tool_panel_section_label: "Textsearch"
+
+- name: blast_rbh
+  owner: peterjc
+  tool_panel_section_label: "Textsearch"
 
 # RNA-Seq
 
@@ -106,6 +136,24 @@ tools:
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
 
+# Graph/Display Data
+
+- name: jbrowse
+  owner: iuc
+  tool_panel_section_label: "Graph/Display Data"
+
+- name: gi2taxonomy
+  owner: devteam
+  tool_panel_section_label: "Graph/Display Data"
+
+- name: lca_wrapper
+  owner: devteam
+  tool_panel_section_label: "Graph/Display Data"
+
+- name: t2ps
+  owner: devteam
+  tool_panel_section_label: "Graph/Display Data"
+
 # BS/RRBS-Seq
 
 - name: bismark
@@ -116,8 +164,66 @@ tools:
   owner: bgruening
   tool_panel_section_label: "BS/RRBS-Seq"
 
+# Nanopore Seq
+
+- name: poretools_extract
+  owner: iuc
+  tool_panel_section_label: "Nanopore Seq"
+
+- name: poretools_stats
+  owner: iuc
+  tool_panel_section_label: "Nanopore Seq"
+
+- name: nanoplot
+  owner: iuc
+  tool_panel_section_label: "Nanopore Seq"
+
+- name: porechop
+  owner: iuc
+  tool_panel_section_label: "Nanopore Seq"
+
+- name: filtlong
+  owner: iuc
+  tool_panel_section_label: "Nanopore Seq"
+
+- name: canu
+  owner: bgruening
+  tool_panel_section_label: "Nanopore Seq"
+
+# Genome Assembly/Alignment
+
+- name: mummer_dnadiff
+  owner: iuc
+  tool_panel_section_label: "Genome Assembly/Alignment"
+
+- name: bandage
+  owner: iuc
+  tool_panel_section_label: "Genome Assembly/Alignment"
+
+- name: miniasm
+  owner: iuc
+  tool_panel_section_label: "Genome Assembly/Alignment"
+
+- name: unicycler
+  owner: iuc
+  tool_panel_section_label: "Genome Assembly/Alignment"
+
 # Annotation
 
 - name: gtftobed12
   owner: iuc
   tool_panel_section_label: "Annotation"
+
+- name: prokka
+  owner: crs4
+  tool_panel_section_label: "Annotation"
+
+# Peak Calling
+
+- name: macs2
+  owner: iuc
+  tool_panel_section_label: "Peak Calling"
+
+- name: idr
+  owner: iuc
+  tool_panel_section_label: "Peak Calling"
