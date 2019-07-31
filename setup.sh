@@ -11,7 +11,6 @@ sed -i -r 's/(^\s*)#+(\s*conda_auto_install\s*=).*/\1\2 True/' $GALAXY_CONFIG_FI
 sed -i -r 's/(^\s*)#+(\s*conda_auto_init\s*=).*/\1\2 True/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*conda_ensure_channels\s*=).*/\1\2 iuc,bioconda,conda-forge,defaults/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*new_user_dataset_access_role_default_private\s*=\s*).*/\1\2True/' $GALAXY_CONFIG_FILE
-sed -i -r 's/(^\s*)#+(\s*enable_quotas\s*=\s*).*/\1\2True/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*allow_user_dataset_purge\s*=\s*).*/\1\2True/' $GALAXY_CONFIG_FILE
 
 head -4 $GALAXY_ROOT/config/tool_conf.xml.sample > $GALAXY_ROOT/config/tool_conf.xml

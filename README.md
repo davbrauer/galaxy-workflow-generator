@@ -46,7 +46,13 @@ The Galaxy Docker container can be launched in different ways.
 Users not relying on Kitematic can open a terminal, or a Windows PowerShell if on Windows, and type:
 
 ```
-$ docker run -d -p 8080:80 quay.io/destair/galaxy-modular-workflow-generator:latest
+$ docker run --rm --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-modular-workflow-generator:latest
+```
+
+An additional paramters will allow a subset of tools to use multiple threads
+
+```
+$ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
 ```
 
 After that, the Galaxy instance can be accessed in a web browser at:
@@ -62,6 +68,7 @@ We recommend using Google Chrome, Chromium, or Mozilla Firefox.
 Kitematic users can instead launch the Galaxy instance by following [these instructions](https://docs.docker.com/kitematic/userguide/).
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 ## Login credentials
 
@@ -119,13 +126,10 @@ Tool | Description | Reference
 
 Tool | Description | Reference
 --- | --- | ---
-[Bowtie2](https://bowtie-bio.sourceforge.net/bowtie2/index.shtml) | Fast and sensitive read alignment | [Langmead et al. 2012](https://doi.org/10.1038/nmeth.1923) 
 [BWA](https://bio-bwa.sourceforge.net/) | Burrows-Wheeler Aligner for mapping low-divergent sequences against a large reference genome | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
-[BWA-MEM](https://bio-bwa.sourceforge.net/) | Fast and accurate long-read alignment with Burrows-Wheeler transform | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
 [HISAT2](https://ccb.jhu.edu/software/hisat2/) | Hierarchical indexing for spliced alignment of transcripts | [Pertea et al. 2016](https://doi.org/10.1038/nprot.2016.095)
 [Segemehl](https://www.bioinf.uni-leipzig.de/Software/segemehl/) | Short sequence read to reference genome mapper | [Otto et al. 2014](https://doi.org/10.1093/bioinformatics/btu146)
 [STAR](https://github.com/alexdobin/STAR) | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
-[TopHat](https://ccb.jhu.edu/software/tophat/index.shtml) | Splice junction mapper for RNA-Seq reads. TopHat aligns RNA-Seq reads to mammalian-sized genomes using the short read aligner Bowtie, then analyzes the results to identify splice junctions between exons | [Trapnell et al. 2009](https://doi.org/10.1093/bioinformatics/btp120)
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
@@ -135,12 +139,17 @@ Tool | Description | Reference
 Tool | Description | Reference
 --- | --- | ---
 [DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) | Differential gene expression analysis based on the negative binomial distribution | [Love et al. 2014](https://doi.org/10.1186/s13059-014-0550-8)
-[DeXSeq](https://bioconductor.org/packages/release/bioc/html/DEXSeq.html) | Differential exon usage, using RNA-seq exon counts between samples with different experimental designs | [Anders et al. 2012](https://doi.org/10.1101/gr.133744.111)
 [featureCounts](http://bioinf.wehi.edu.au/featureCounts/) | Genomic feature read count tool for summarising of genes, exons, and promoter counts | [Liao et al. 2014](https://doi.org/10.1093/bioinformatics/btt656)
 [htseq-count](https://www-huber.embl.de/HTSeq/doc/count.html) | Tool for counting reads in features | [Anders et al. 2015](https://doi.org/10.1093%2Fbioinformatics%2Fbtu638)
+[RSeQC](http://rseqc.sourceforge.net) | An RNA-seq Quality Control Package | [Wang et al. 2012](https://doi.org/10.1093/bioinformatics/bts356)
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
+## Bisulfite sequencing data analysi
+sTool | Description | Reference
+--- | --- | ---
+[Bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark) | Bismark is a program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls | [Krueger et al. 2011](https://doi.org/10.1093/bioinformatics/btr167)
+[MethylDackel](https://github.com/dpryan79/MethylDackel) | A tool extract per-base methylation metrics from coordinate-sorted and indexed BS-seq alignments | [Devon Ryan](https://github.com/dpryan79/MethylDackel)
 
 ## Utilities
 
@@ -149,6 +158,7 @@ Tool | Description | Reference
 [SAMtools](https://samtools.sourceforge.net/) | Utilities for manipulating alignments in the SAM format | [Heng et al. 2009](https://doi.org/10.1093/bioinformatics/btp352)
 [BLAST+](ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST) | A software library of tools for sequence similarity search | [Camacho et al. 2009](https://doi.org/10.1186/1471-2105-10-421)
 [SortMeRNA](https://bioinfo.lifl.fr/RNA/sortmerna/) | A tool for filtering, mapping and OTU-picking NGS reads in metatranscriptomic and -genomic data | [Kopylova et al. 2011](https://doi.org/10.1093/bioinformatics/bts611)
+[Rcorrector](https://github.com/mourisl/Rcorrector) | Rcorrector is a kmer-based error correction method for RNA-seq data | [Song et al. 2015](https://doi.org/10.1186/s13742-015-0089-y)
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
