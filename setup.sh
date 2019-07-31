@@ -15,7 +15,7 @@ sed -i -r 's/(^\s*)#+(\s*allow_user_dataset_purge\s*=\s*).*/\1\2True/' $GALAXY_C
 
 head -4 $GALAXY_ROOT/config/tool_conf.xml.sample > $GALAXY_ROOT/config/tool_conf.xml
 echo '  </section>' >> $GALAXY_ROOT/config/tool_conf.xml
-echo '  <section id="destair_visualization" name="Visualization">' >> $GALAXY_ROOT/config/tool_conf.xml
+echo '  <section id="destair_visualization" name="de.STAIR Visualization">' >> $GALAXY_ROOT/config/tool_conf.xml
 for i in $(ls -d /tmp/tools/*/); do
 	echo '    <tool file="'$(basename $i)/$(basename $i).xml'" />'
 done >> $GALAXY_ROOT/config/tool_conf.xml
@@ -28,6 +28,7 @@ rm -rf /tmp/webhooks
 
 mv /tmp/guided_tours/*yaml $GALAXY_ROOT/config/plugins/tours/
 rm -rf /tmp/guided_tours
+
 
 # source $GALAXY_CONDA_PREFIX/bin/activate
 # conda install -y -c iuc -c bioconda -c conda-forge -c defaults $(grep -F 'requirement type' /tmp/tools/*/destair_heatmap.xml | sed -r 's/(.*)(version=")(.+)(">)(.+)(<.*)/\5=\3/' | xargs -echo)

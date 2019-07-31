@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<job_conf>
+    <plugins workers="8">
+        <plugin id="slurm" type="runner" load="galaxy.jobs.runners.slurm:SlurmJobRunner">
+            <param id="drmaa_library_path">/usr/lib/slurm-drmaa/lib/libdrmaa.so</param>
+        </plugin>
+        <plugin id="slurmthreaded" type="runner" load="galaxy.jobs.runners.slurm:SlurmJobRunner" workers="1">
+            <param id="drmaa_library_path">/usr/lib/slurm-drmaa/lib/libdrmaa.so</param>
+        </plugin>
+        <!--
+        <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner">
+        <plugin id="localthreaded" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner" workers="1">
+        -->
+    </plugins>
+
+    <!-- docker: no. handler entries must match $GALAXY_HANDLER_NUMPROCS -->
+    <handlers>
+        <handler id="handler0">
+            <plugin id="slurm"/>
+        </handler>
+        <handler id="handler1">
+            <plugin id="slurmthreaded"/>
+        </handler>
+    </handlers>
+
+    <destinations default="slurm">
+    	<!--
+        <destination id="local" runner="local"/>
+        	<env file="/galaxy_venv/bin/activate"/>
+        </destination>
+        <destination id="localthreaded" runner="localthreaded">
+            <env file="/galaxy_venv/bin/activate"/>
+            <param id="local_slots" from_environ="GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS">1</param>
+        </destination>
+    	-->
+        <destination id="slurm" runner="slurm">
+            <env file="/galaxy_venv/bin/activate"/>
+            <param id="nativeSpecification">--ntasks=1</param>
+        </destination>
+        <destination id="slurmthreaded" runner="slurmthreaded">
+            <env file="/galaxy_venv/bin/activate"/>
+            <param id="nativeSpecification" from_environ="GALAXY_CONFIG_PARALLEL_SLURM_PARAMS">--ntasks=2</param>
+        </destination>
+    </destinations>
+
+    <tools>
+        <tool id="cutadapt" destination="slurmthreaded"/>
+        <tool id="samtools_sort"  destination="slurmthreaded"/>
+        <tool id="samtools_flagstat"  destination="slurmthreaded"/>
+        <tool id="ncbi_blast_plus"  destination="slurmthreaded"/>
+        <tool id="blast_rbh"  destination="slurmthreaded"/>
+        <tool id="hisat2"  destination="slurmthreaded"/>
+        <tool id="segemehl"  destination="slurmthreaded"/>
+        <tool id="bwa"  destination="slurmthreaded"/>
+        <tool id="featurecounts"  destination="slurmthreaded"/>
+        <tool id="sortmerna"  destination="slurmthreaded"/>
+        <tool id="rcorrector"  destination="slurmthreaded"/>
+        <tool id="rgrnastar"  destination="slurmthreaded"/>
+        <tool id="bismark"  destination="slurmthreaded"/>
+        <tool id="canu"  destination="slurmthreaded"/>
+        <tool id="miniasm"  destination="slurmthreaded"/>
+        <tool id="unicycler"  destination="slurmthreaded"/>
+        <tool id="prokka"  destination="slurmthreaded"/>
+    </tools>
+
+    <limits>
+        <limit type="walltime">24:00:00</limit>
+        <limit type="destination_user_concurrent_jobs">5</limit>
+        <limit type="destination_total_concurrent_jobs">40</limit>
+    </limits>
+</job_conf>

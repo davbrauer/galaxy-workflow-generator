@@ -4,11 +4,14 @@ MAINTAINER de.STAIR destair@leibniz-fli.de
 
 ENV GALAXY_CONFIG_BRAND="de.STAIR" \
     GALAXY_CONFIG_CONDA_AUTO_INSTALL=True \
-    GALAXY_CONFIG_CONDA_AUTO_INIT=True
+    GALAXY_CONFIG_CONDA_AUTO_INIT=True \
+    GALAXY_CONFIG_PARALLEL_SLURM_PARAMS="--ntasks=2" \
+    GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=2
 
 COPY tools.yaml $GALAXY_ROOT/tools.yaml
 COPY data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 COPY web $GALAXY_CONFIG_DIR/web
+COPY job_conf.xml $GALAXY_CONFIG_JOB_CONFIG_FILE
 
 COPY workflows /tmp/workflows
 COPY guided_tours /tmp/guided_tours
