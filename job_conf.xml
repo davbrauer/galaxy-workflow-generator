@@ -13,11 +13,14 @@
         -->
     </plugins>
 
-    <!-- docker: no. entries must match $GALAXY_HANDLER_NUMPROCS -->
-    <handlers default="handlers">
-    	<!-- <handler id="main"/> -->
-        <handler id="handler0" tags="handlers"/>
-        <handler id="handler1" tags="handlers"/>
+    <!-- docker: no. handler entries must match $GALAXY_HANDLER_NUMPROCS -->
+    <handlers>
+        <handler id="handler0">
+            <plugin id="slurm"/>
+        </handler>
+        <handler id="handler1">
+            <plugin id="slurmthreaded"/>
+        </handler>
     </handlers>
 
     <destinations default="slurm">
@@ -27,17 +30,16 @@
         </destination>
         <destination id="localthreaded" runner="localthreaded">
             <env file="/galaxy_venv/bin/activate"/>
-            <param id="local_slots" from_environ="GALAXY_CONFIG_JOB_THREADS">1</param>
+            <param id="local_slots" from_environ="GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS">1</param>
         </destination>
     	-->
         <destination id="slurm" runner="slurm">
             <env file="/galaxy_venv/bin/activate"/>
-            <param id="nativeSpecification" from_environ="NATIVE_SPEC">--ntasks=1 --share</param>
+            <param id="nativeSpecification">--ntasks=1</param>
         </destination>
         <destination id="slurmthreaded" runner="slurmthreaded">
             <env file="/galaxy_venv/bin/activate"/>
-            <env exec="export GALAXY_CONFIG_SLURM_PARAMS='--share --ntasks='$GALAXY_CONFIG_JOB_THREADS" raw="true"/>
-            <param id="nativeSpecification" from_environ="GALAXY_CONFIG_SLURM_PARAMS">--ntasks=1 --share</param>
+            <param id="nativeSpecification" from_environ="GALAXY_CONFIG_PARALLEL_SLURM_PARAMS">--ntasks=2</param>
         </destination>
     </destinations>
 
@@ -62,5 +64,8 @@
     </tools>
 
     <limits>
+        <limit type="walltime">24:00:00</limit>
+        <limit type="destination_user_concurrent_jobs">5</limit>
+        <limit type="destination_total_concurrent_jobs">40</limit>
     </limits>
 </job_conf>
