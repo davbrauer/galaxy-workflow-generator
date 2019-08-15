@@ -4,6 +4,7 @@ sed -i -r 's/(^\s*)#+(\s*allow_user_deletion\s*[:=]\s*).*/\1\2true/' $GALAXY_CON
 sed -i -r 's/(^\s*)#+(\s*require_login\s*[:=]\s*).*/\1\2true/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*brand\s*[:=]\s*).*/\1\2de\.STAIR/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*enable_quotas\s*[:=]\s*).*/\1\2true/' $GALAXY_CONFIG_FILE
+sed -i -r 's/(^\s*)#+(\s*welcome_url.+)/\1\2/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*show_welcome_with_login\s*[:=]\s*).*/\1\2true/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*webhooks_dir.+)/\1\2/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*tour_config_dir.+)/\1\2/' $GALAXY_CONFIG_FILE
