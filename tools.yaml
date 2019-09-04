@@ -24,7 +24,7 @@ tools:
   owner: pjbriggs
   tool_panel_section_label: "Quality Control"
 
-- name: sickle
+- name: prinseq
   owner: iuc
   tool_panel_section_label: "Quality Control"
 
@@ -114,6 +114,14 @@ tools:
 
 - name: pileometh
   owner: bgruening
+  tool_panel_section_label: "BS/RRBS-Seq"
+
+- name: segemehl
+  owner: rnateam
+  tool_panel_section_label: "BS/RRBS-Seq"
+
+- name: bwameth
+  owner: iuc
   tool_panel_section_label: "BS/RRBS-Seq"
 
 # Annotation
