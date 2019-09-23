@@ -1,8 +1,10 @@
 #! /usr/bin/env bash
 
+sed -i -r 's/(^\s*)#+(\s*allow_user_deletion\s*[:=]\s*).*/\1\2true/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*require_login\s*[:=]\s*).*/\1\2true/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*brand\s*[:=]\s*).*/\1\2de\.STAIR/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*enable_quotas\s*[:=]\s*).*/\1\2true/' $GALAXY_CONFIG_FILE
+sed -i -r 's/(^\s*)#+(\s*welcome_url.+)/\1\2/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*show_welcome_with_login\s*[:=]\s*).*/\1\2true/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*webhooks_dir.+)/\1\2/' $GALAXY_CONFIG_FILE
 sed -i -r 's/(^\s*)#+(\s*tour_config_dir.+)/\1\2/' $GALAXY_CONFIG_FILE
@@ -27,8 +29,11 @@ mv /tmp/webhooks/* $GALAXY_ROOT/config/plugins/webhooks
 rm -rf /tmp/webhooks
 
 mv /tmp/guided_tours/*yaml $GALAXY_ROOT/config/plugins/tours/
+mv /tmp/guided_tours/*.html $GALAXY_ROOT/static
 rm -rf /tmp/guided_tours
 
+mv /tmp/web/* $GALAXY_ROOT/static
+rm -rf /tmp/web
 
 # source $GALAXY_CONDA_PREFIX/bin/activate
 # conda install -y -c iuc -c bioconda -c conda-forge -c defaults $(grep -F 'requirement type' /tmp/tools/*/destair_heatmap.xml | sed -r 's/(.*)(version=")(.+)(">)(.+)(<.*)/\5=\3/' | xargs -echo)
