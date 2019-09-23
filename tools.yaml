@@ -50,6 +50,10 @@ tools:
   owner: devteam
   tool_panel_section_label: "Utilities"
 
+- name: samtools_rmdup
+  owner: devteam
+  tool_panel_section_label: "Utilities"
+
 - name: samtools_idxstats
   owner: devteam
   tool_panel_section_label: "Utilities"
