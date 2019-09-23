@@ -42,6 +42,10 @@ tools:
   owner: devteam
   tool_panel_section_label: "Utilities"
 
+- name: samtools_rmdup
+  owner: devteam
+  tool_panel_section_label: "Utilities"
+
 - name: bedtools
   owner: iuc
   tool_panel_section_label: "Utilities"
