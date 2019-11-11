@@ -1,6 +1,3 @@
-[submodule "webhooks"]
-	path = webhooks
-	url = https://github.com/destairdenbi/webhooks.git
 [submodule "guided_tours"]
 	path = guided_tours
 	url = https://github.com/destairdenbi/guided_tours.git
@@ -10,3 +7,6 @@
 [submodule "workflows"]
 	path = workflows
 	url = https://github.com/destairdenbi/galaxy-workflows.git
+[submodule "webhooks"]
+	path = webhooks
+	url = https://github.com/destairdenbi/galaxy-webhooks.git
