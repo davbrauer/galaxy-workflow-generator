@@ -1,9 +1,12 @@
+[submodule "workflows"]
+	path = workflows
+	url = https://github.com/destairdenbi/galaxy-workflows.git
 [submodule "webhooks"]
 	path = webhooks
-	url = https://github.com/destairdenbi/webhooks.git
-[submodule "guided_tours"]
-	path = guided_tours
-	url = https://github.com/destairdenbi/guided_tours.git
+	url = https://github.com/destairdenbi/galaxy-webhooks.git
 [submodule "tools"]
 	path = tools
-	url = https://github.com/destairdenbi/tools.git
+	url = https://github.com/destairdenbi/galaxy-tools.git
+[submodule "atoms"]
+	path = atoms
+	url = https://github.com/destairdenbi/galaxy-atoms.git
