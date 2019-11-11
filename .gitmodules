@@ -1,12 +1,12 @@
 [submodule "guided_tours"]
 	path = guided_tours
 	url = https://github.com/destairdenbi/guided_tours.git
-[submodule "tools"]
-	path = tools
-	url = https://github.com/destairdenbi/tools.git
 [submodule "workflows"]
 	path = workflows
 	url = https://github.com/destairdenbi/galaxy-workflows.git
 [submodule "webhooks"]
 	path = webhooks
 	url = https://github.com/destairdenbi/galaxy-webhooks.git
+[submodule "tools"]
+	path = tools
+	url = https://github.com/destairdenbi/galaxy-tools.git
