@@ -1,61 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <div class="head" align=center>
-        <h2>Welcome to <img src="./destair_logo.png" height="25" /> workflow generator!</h2>
-        <h3><font color="blue">To start, register for free and klick the de.STAIR icon in the top menu </font></h3>
-        <h3>Bioinformatics Services for Structured Analysis and Integration of RNA-Seq experiments</h3>
+      <h2>Welcome to the Galaxy workflow generator!</h2>
+      <div class="start" style="width:80%" align=center>
+        <h3><font color="blue">To start, register for free and click on the de.STAIR icon in the top menu.</font></h3>
+      </div>
+      <img src="./concept.png" alt="concept" width="50%" align="center"/>
     </div>
-</head>
-<body style="margin: 0">
+  </head>
+
+
+  <body style="margin: 0">
     <div class="abstract" align=center>
-        <div style="width: 600px">
-        As part of the RNA Bioinformatics center (RBC), which supports all RNA-related research within <strong>de.NBI</strong>, <strong>de.STAIR</strong> summarizes the expertise of three participating laboratories to develop and maintain an flexible RNA-Seq analysis workbench. In addition, we offer webinars and training events within the <strong>Galaxy</strong> universe.
-        <br>
-        <img src="./destair_concept.png" height="200" />
-        <br>
-        <a href="https://github.com/destairdenbi">Follow our Project on GitHub</a>
-        <br>
+
+
+      <br />
+      <br />
+      <div class="description" style="width: 80%;" align=left>
+        <h3 align="center">How it works</h3>
+        <p>
+A Galaxy framework is equipped with <i>alternative</i> Galaxy tools
+that are able to address the same biological problem in a different,
+sometimes more suitable way. Alternative tools can, for example,
+offer different sensitivity, speed, memory usage, as well as distinct
+sets of parameters and features.<br />
+For these reasons, to build Galaxy workflows, users are required to
+choose tools on the basis of their suitability within the context of
+the target analysis. However, shared best-practice training materials
+do not uniformly cover their usage, and the growing landscape of
+computational tools have not made this task any simpler.
+        </p>
+        <p>
+We address these issues with the <b>Galaxy workflow generator</b>.
+In this Galaxy instance we present alternative interactive tours to
+carry out each operation within the desired analysis, and provide
+breef descriptions of the pros and cons associated to their usage.
+We call these set of alternative units <i>atoms</i>, and hand to the
+user the possibility to select the preferred one to build customized
+Galaxy workflows.<br />
+This design allows users to compare different tools before selecting
+the most appropriate one, and provides equal visibility to the
+available alternative algorithms of a Galaxy instance.
+        </p>
+        <p>
+The Galaxy workflow generator provides alternative atoms for the
+construction of RNA-Seq as well as BS-Seq workflows.<br />
+Atoms are presented as alternative items of a multipl-choice list,
+which is rendered by means of a developed plugin enhancing the
+Galaxy interfaces with novel pop-up dialogues. User-selected atoms
+are then illustrated through dedicated interactive tours, which
+users can follow to parametrize tools and customize their workflows.<br />
+The <b>Figure</b> below illustrates how the process of selecting
+atoms and building workflows takes place. Here, a user is carrying
+out an RNA-Seq analysis, which is divided into its 3 main tasks: 1)
+Quality control and data preprocessing, 2) Genome alignment, 3)
+Transcript quantification and differential gene expression. For each
+task, the user selects the desired atom in the front-end interface,
+and navigates the corresponding interactive tour. The interactive
+tour drives the execution of each underlying tool in the Galaxy
+back-end. Once each task has been completed, the resulting workflow
+(traced in red), will thus be composed of the series of alternative
+tools of each selected atom, parametrized according to the
+interactive tour.
+        </p>
+        <div align="center">
+          <img src="./process.png" alt="process" width="80%" align="center"/>
+        </div>
+      </div>
+
+
+      <br />
+      <br />
+      <div class="contributing" style="width: 80%;" align=left>
+        <h3 align="center">Contributing</h3>
+Prospective contributors can create new atoms and related help pages,
+and install the necessary tools from the <a href="https://toolshed.g2.bx.psu.edu">Galaxy Tool Shed</a>.
+New atoms can target different types of analyses and leverage on new
+tools. Moreover, existing Galaxy instances can be extended with the
+atoms paradigm by installing our developed plugin.<br />
+Instructions on how to carry out this process are maintained on <a href="https://github.com/destairdenbi">our GitHub repository</a>.
+      </div>
+
+
+      <br />
+      <br />
+      <div class="contributors" style="width: 80%;" align=left>
+        <h3 align="center">About de.STAIR</h3>
+Coordinated by <a href="http://www.leibniz-fli.de/research/research-groups/hoffmann">Prof. Steve Hoffmann</a>,
+<a href="http://www.cyanolab.de/index.php">Prof. Wolfgang Hess</a>,
+and <a href="https://www.sbi.uni-rostock.de/team/detail/prof-olaf-wolkenhauer">Prof. Olaf Wolkenhauer</a>,
+de.STAIR develops flexible RNA-Seq analysis workflows for different
+RNA-Seq protocols, to be used as standalone software, as well as
+integrated in the Galaxy platform. In addition, the group offers
+training courses for analysing biomedical data with Galaxy.<br />
+de.STAIR is part of the <a href="https://www.denbi.de/network/rna-bioinformatics-center-rbc">RNA Bioinformatics Center (RBC)</a>,
+which supports all RNA-related research within <a href="">de.NBI</a>:
+the German Network for Bioinformatics Infrastructure
+(<a href="https://elixir-europe.org/about-us/who-we-are/nodes/germany">ELIXIR Germany</a>).
+      </div>
+
+
+      <br />
+      <div class="footer" style="width:80%" align="center">
+        <a href="https://www.leibniz-fli.de"><img src="./logo_fli.png" alt="logo-leibniz-fli" height="85" /></a>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <a href="https://www.uni-freiburg.de"><img src="./logo_freiburg.png" alt="logo-uni-freiburg" height="85" /></a>
+        &nbsp;
+        &nbsp;
+        &nbsp;
+        <a href="https://www.uni-rostock.de"><img src="./logo_rostock.png" alt="logo-uni-rostock" height="80" /></a>
+      </div>
+
+
+      <br />
+      <br />
+      <div class="acknowledgements" style="width: 80%;" align=left>
+        <h3 align="center">Acknowledgements</h3>
+We thank the Freiburg Galaxy Team, and all Galaxy community trainers
+and developers for their great work. We also thank the BMBF for the
+de.NBI-Partner program (Grant 031L0106), and the European Social Fund
+(ESF/14-BM-A55-0027/18).<br /><br />
+        <div class="footer" align=center>
+          <a href="https://www.denbi.de"><img src="./logo_denbi.png" alt="logo-denbi" height="60" /></a>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <a href="https://www.bmbf.de"><img src="./logo_bmbf.png" alt="logo-bmbf" height="60" /></a>
+          &nbsp;
+          &nbsp;
+          &nbsp;
+          <a href="https://www.ptj.de"><img src="./logo_ptj.png" alt="logo-ptj" height="60" /></a>
+        </div>
+      </div>
+
     </div>
-    <div class="contributors" align=center>
-        <h3 align="center">Contributors</h3>
-        <table>
-        <tr>
-            <td>Leibniz Institute on Aging (FLI)</td>
-            <td><a href="http://www.leibniz-fli.de/research/research-groups/hoffmann/">Prof. Dr. Dr. Steve Hoffmann</a>
-            <br>
-            Konstantin Riege</td>
-        </tr>
-        <tr>
-            <td>University Freiburg</td>
-            <td><a href="http://www.cyanolab.de/index.php">Prof. Dr. Wolfgang Hess</a>
-            <br>
-            Steffen Lott
-            </td>
-        </tr>
-        <tr>
-            <td>University Rostock</td>
-            <td>
-            <a href="https://www.sbi.uni-rostock.de/research/research-projects/single/47/">Prof. Dr. Olaf Wolkenhauer</a>
-            <br>
-            Andrea Bagnacani
-            </td>
-        </tr>
-        </table>
-    </div>
-    <br>
-    <div class="footer" align=center>
-        <img src="./freiburg_logo.png" height="55" />
-        &nbsp;
-        <img src="./rostock_logo.png" height="50" />
-        &nbsp;
-        <img src="./fli_logo.png" height="45" />
-        &nbsp;
-        <img src="./denbi_logo.png" height="30" />
-        &nbsp;
-        <img src="./bmbf_logo.png" height="40" />
-        &nbsp;
-        <img src="./ptj_logo.png" height="35" />
-    </div>
-</body>
+  </body>
 </html>
