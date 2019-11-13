@@ -28,9 +28,9 @@ sed -i -r 's/Get\s+Data/Upload Data/' $GALAXY_ROOT/integrated_tool_panel.xml
 mv /tmp/webhooks/* $GALAXY_ROOT/config/plugins/webhooks
 rm -rf /tmp/webhooks
 
-mv /tmp/guided_tours/*yaml $GALAXY_ROOT/config/plugins/tours/
-mv /tmp/guided_tours/*.html $GALAXY_ROOT/static
-rm -rf /tmp/guided_tours
+mv /tmp/atoms/*yaml $GALAXY_ROOT/config/plugins/tours/
+mv /tmp/atoms/*.html $GALAXY_ROOT/static
+rm -rf /tmp/atoms
 
 mv /tmp/web/* $GALAXY_ROOT/static
 rm -rf /tmp/web
@@ -43,17 +43,17 @@ mv /tmp/tools/* $GALAXY_ROOT/test-data
 sed -i '$ d' $GALAXY_ROOT/tools/data_source/upload.xml
 cat << EOF >> $GALAXY_ROOT/tools/data_source/upload.xml
   <citations>
-    <citation type="bibtex">@Article{de.STARI-workflow-generator,                           
+    <citation type="bibtex">@Article{de.STAIR-workflow-generator,
       author   = {Lott, Steffen C. and Wolfien, Markus and Riege, Konstantin and Bagnacani, Andrea and Wolkenhauer, Olaf and Hoffmann, Steve and Hess, Wolfgang R.},
       title    = {Customized workflow development and data modularization concepts for {RNA}-{S}equencing and metatranscriptome experiments.},
       journal  = {J. Biotechnol.},
       year     = {2017},
-      volume   = {261},     
-      pages    = {85--96},      
-      month    = {Nov},   
-      issn     = {1873-4863},      
+      volume   = {261},
+      pages    = {85--96},
+      month    = {Nov},
+      issn     = {1873-4863},
       day      = {10},
-      doi      = {10.1016/j.jbiotec.2017.06.1203},       
+      doi      = {10.1016/j.jbiotec.2017.06.1203},
       language = {eng},
       url      = {http://www.ncbi.nlm.nih.gov/pubmed/28676233},
     }
