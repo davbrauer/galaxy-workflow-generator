@@ -14,7 +14,7 @@ COPY job_conf.xml $GALAXY_CONFIG_JOB_CONFIG_FILE
 
 COPY web /tmp/web
 COPY workflows /tmp/workflows
-COPY guided_tours /tmp/guided_tours
+COPY atoms /tmp/atoms
 COPY webhooks /tmp/webhooks
 COPY tools /tmp/tools
 COPY setup.sh /tmp/setup.sh
