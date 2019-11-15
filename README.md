@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator.svg?branch=master)](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator)
-[![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-modular-workflow-generator/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-modular-workflow-generator)
+[![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-workflow-generator/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-workflow-generator)
 
 Galaxy Modular Workflow Generator for guided data analysis
 ==========================================================
