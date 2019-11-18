@@ -103,7 +103,7 @@ Before the workflow generation, *best practice workflows* were crafted from begi
 Tool | Description | Reference
 :---: | :--- | :---
 Cutadapt | Error-tolerant adapter removal tool for High-Throughput Sequencing reads | [Martin 2011](https://doi.org/10.14806/ej.17.1.200)
-FastQC | A quality control tool for high throughput sequence data |
+FastQC | A quality control tool for high throughput sequence data | [Andrews](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
 PRINSEQ | A quality control and data preprocessing tool for metagenomic data | [Schmieder et al. 2011](https://doi.org/10.1093/bioinformatics/btr026)
 Trim Galore! | Quality control tool for read trimming and filtering of NGS data |
 Trimmomatic | Quality control tool for read trimming and filtering of Illumina NGS data | [Bolger et al. 2014](https://doi.org/10.1093/bioinformatics/btu170)
@@ -129,7 +129,7 @@ DESeq2 | Differential gene expression analysis based on the negative binomial di
 featureCounts | Genomic feature read count tool for summarising of genes, exons, and promoter counts | [Liao et al. 2014](https://doi.org/10.1093/bioinformatics/btt656)
 HISAT2 | Hierarchical indexing for spliced alignment of transcripts | [Pertea et al. 2016](https://doi.org/10.1038/nprot.2016.095)
 HTSeq-count | Tool for counting reads in features | [Anders et al. 2015](https://doi.org/10.1093/bioinformatics/btu638)
-Rcorrector | Rcorrector is a kmer-based error correction method for RNA-seq data | [Song et al. 2015](https://doi.org/10.1186/s13742-015-0089-y)
+Rcorrector | A kmer-based error correction method for RNA-seq data | [Song et al. 2015](https://doi.org/10.1186/s13742-015-0089-y)
 RSeQC | An RNA-seq Quality Control Package | [Wang et al. 2012](https://doi.org/10.1093/bioinformatics/bts356)
 SortMeRNA | A tool for filtering, mapping and OTU-picking NGS reads in metatranscriptomic and -genomic data | [Kopylova et al. 2011](https://doi.org/10.1093/bioinformatics/bts611)
 STAR | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
@@ -139,9 +139,9 @@ STAR | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.
 
 Tool | Description | Reference
 :---: | :--- | :---
-Bismark | Bismark is a program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls | [Krueger et al. 2011](https://doi.org/10.1093/bioinformatics/btr167)
+Bismark | A program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls | [Krueger et al. 2011](https://doi.org/10.1093/bioinformatics/btr167)
 bwameth | Fast and accurate aligner of BS-Seq reads | [Brent et al. 2014](https://arxiv.org/abs/1401.1129)
-MethylDackel | A tool extract per-base methylation metrics from coordinate-sorted and indexed BS-seq alignments | [Devon Ryan](https://github.com/dpryan79/MethylDackel)
+MethylDackel | A tool to extract per-base methylation metrics from coordinate-sorted and indexed BS-seq alignments | [Ryan](https://github.com/dpryan79/MethylDackel)
 segemehl | Short sequence read to reference genome mapper | [Otto et al. 2014](https://doi.org/10.1093/bioinformatics/btu146)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
