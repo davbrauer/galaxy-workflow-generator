@@ -1,12 +1,12 @@
 [![Build Status](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator.svg?branch=master)](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator)
 [![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-workflow-generator/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-workflow-generator)
 
-Galaxy Modular Workflow Generator for guided data analysis
-==========================================================
+Galaxy workflow generator for assisted RNA-Seq and BS-Seq data analyses
+=======================================================================
 
-The Galaxy Modular Workflow Generator is a self-contained Galaxy instance, comprising a set of analysis tools and related guided tours.  
+The Galaxy workflow generator is a self-contained Galaxy instance, comprising a set of analysis tools and related guided tours.  
 Guided tours are usually associated with consolidated workflows, composed of multiple tools, each of which is explained in terms of its function and parametrization options. However, such structure presents an analysis as monolithic: tools are pre-selected, and executed in cascade until the result is retrieved. With this unbreakable flow, users cannot readily appreciate the existence of alternative routes (tools) to compose their workflow analyses. At the same time, trainers willing to include such information within the designated training material, would have to continuously update every workflow mentioning each alternative tool.  
-To overcome these limitations, in the Galaxy Modular Workflow Generator we provide guided tours that focus on tools rather than workflows, therefore enabling users to perform a specific analysis not by strictly following a pre-defined path, but by walking one.
+To overcome these limitations, in the Galaxy workflow generator we provide guided tours that focus on tools rather than workflows, therefore enabling users to perform a specific analysis not by strictly following a pre-defined path, but by walking one.
 
 - [Usage](#usage)
   - [Requirements](#requirements)
@@ -46,7 +46,7 @@ The Galaxy Docker container can be launched in different ways.
 Users not relying on Kitematic can open a terminal, or a Windows PowerShell if on Windows, and type:
 
 ```
-$ docker run --rm --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-modular-workflow-generator:latest
+$ docker run --rm --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-workflow-generator:latest
 ```
 
 An additional paramters will allow a subset of tools to use multiple threads
@@ -72,7 +72,7 @@ Kitematic users can instead launch the Galaxy instance by following [these instr
 
 ## Login credentials
 
-To be able to use the modular workflow generator, a user nees to be logged in. 
+To be able to use the Galaxy workflow generator, a user nees to be logged in. 
 
 - If you don't have one, please create it using the link provided at the top right corner
 - If you have one, please enter your credentials in the form at the top right corner
@@ -89,7 +89,7 @@ The following scenario illustrates a differential gene expression analysis, whos
 - Counting
 
 <p align="center">
-<img align="center" src="web/how-it-works.png" width="600px" alt="Galaxy Modular Workflow Generator for guided data analysis" valign="top"/>
+<img align="center" src="web/how-it-works.png" width="600px" alt="Galaxy workflow generator for guided data analysis" valign="top"/>
 </p>
 
 **A**) An [interactive dialog](https://docs.galaxyproject.org/en/latest/admin/webhooks.html) asks the user how they intend to carry out data preprocessing and quality control. When a choice is selected, Galaxy launches the relative interactive tour to guide the user through tools, parametrisation, and the meaning of results.  
@@ -98,11 +98,11 @@ The following scenario illustrates a differential gene expression analysis, whos
 
 **C**) As the Data preprocessing phase ends, users are presented with another interactive dialog, asking which Mapping tool to use.  
 
-**D**) When the mapping phase ends, the counting phase starts. Once again, the modular workflow generator presents a set of best-practice tools, and users are requested to selected their tools of choice to complete the analysis.
+**D**) When the mapping phase ends, the counting phase starts. Once again, the workflow generator presents a set of best-practice tools, and users are requested to selected their tools of choice to complete the analysis.
 
 **E**) Finally, the workflows can be exported, and run on a different Galaxy instances.
 
-Before the modular workflow generation, *best practice workflows* were crafted from beginning to end, without presenting its users any alternative to carry out their analyses. With the present approach however, we break down a workflow in its phases, and show users alternative *best-practice tools* to build their workflows. This way,
+Before the workflow generation, *best practice workflows* were crafted from beginning to end, without presenting its users any alternative to carry out their analyses. With the present approach however, we break down a workflow in its phases, and show users alternative *best-practice tools* to build their workflows. This way,
 - Users can discover newly developed alternatives, and self train on a wider range of state-of-the-art tools;
 - Trainers can create flexible workflows to thread alternative best-practice tools into a single workflow.
 
@@ -164,14 +164,14 @@ Tool | Description | Reference
 
 # Support and bug reports
 
-If you have questions, or don't know how to solve a problem using the provided Galaxy instance, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues).
+If you have questions, or don't know how to solve a problem using the provided Galaxy instance, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-workflow-generator/issues).
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 # Contributing
 
 New contributions are always welcome. Please read [these instructions](
-https://github.com/destairdenbi/galaxy-modular-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
+https://github.com/destairdenbi/galaxy-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
 
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
