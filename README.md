@@ -22,12 +22,7 @@ To overcome these limitations, in the Galaxy workflow generator we provide guide
 - [Contributors](#contributors)
 - [MIT license](#mit-license)
 
-<!--
-# Usage
-To use the container
-This Galaxy instance is provided as a Docker container, developed from [Docker Galaxy Stable](https://github.com/bgruening/docker-galaxy-stable). Whether you are a user, a developer, or an administrator, you only need to have [Docker](https://www.docker.com/) set up to run the container. Here we illustrate how to do so.
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
--->
+
 # Installation requirements
 
 The only requirement is [Docker](https://www.docker.com/), which can be installed in different ways depending on the underlying system:
