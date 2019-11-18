@@ -98,6 +98,7 @@ Before the workflow generation, *best practice workflows* were crafted from begi
 
 # Tools
 
+
 ## Quality control
 
 Tool | Description | Reference
@@ -109,6 +110,7 @@ Trim Galore! | Quality control tool for read trimming and filtering of NGS data 
 Trimmomatic | Quality control tool for read trimming and filtering of Illumina NGS data | [Bolger et al. 2014](https://doi.org/10.1093/bioinformatics/btu170)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
+
 ## Mapping
 
 Tool | Description | Reference
@@ -119,6 +121,7 @@ HISAT2 | Hierarchical indexing for spliced alignment of transcripts | [Pertea et
 segemehl | Short sequence read to reference genome mapper | [Otto et al. 2014](https://doi.org/10.1093/bioinformatics/btu146)
 STAR | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 ## RNA-Seq
 
@@ -135,6 +138,7 @@ SortMeRNA | A tool for filtering, mapping and OTU-picking NGS reads in metatrans
 STAR | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
+
 ## BS/RRBS-Seq
 
 Tool | Description | Reference
@@ -144,6 +148,7 @@ bwameth | Fast and accurate aligner of BS-Seq reads | [Brent et al. 2014](https:
 MethylDackel | A tool to extract per-base methylation metrics from coordinate-sorted and indexed BS-seq alignments | [Ryan](https://github.com/dpryan79/MethylDackel)
 segemehl | Short sequence read to reference genome mapper | [Otto et al. 2014](https://doi.org/10.1093/bioinformatics/btu146)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 ## Utilities
 
@@ -156,16 +161,15 @@ BEDTools | Utilities for genome arithmetic | [Quinlan et al. 2010](https://doi.o
 
 # Support and bug reports
 
-If you have questions, or don't know how to solve a problem using the provided Galaxy instance, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-workflow-generator/issues).
-
+If you have questions, or don't know how to solve a problem, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-workflow-generator/issues).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 # Contributing
 
-New contributions are always welcome. Please read [these instructions](
-https://github.com/destairdenbi/galaxy-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
-
+New contributions are always welcome. Please read [these instructions](https://github.com/destairdenbi/galaxy-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 # Contributors
 
@@ -175,8 +179,8 @@ https://github.com/destairdenbi/galaxy-workflow-generator/blob/master/CONTRIBUTI
  - [Steffen Lott](https://github.com/lotts)
  - [Konstantin Riege](https://github.com/koriege)
  - [Markus Wolfien](https://github.com/mwolfien)
-
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 # MIT license
 
@@ -197,5 +201,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
