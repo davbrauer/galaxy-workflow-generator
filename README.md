@@ -1,179 +1,187 @@
 [![Build Status](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator.svg?branch=master)](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator)
 [![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-workflow-generator/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-workflow-generator)
 
-Galaxy Modular Workflow Generator for guided data analysis
-==========================================================
+Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses
+=======================================================================
 
-The Galaxy Modular Workflow Generator is a self-contained Galaxy instance, comprising a set of analysis tools and related guided tours.  
-Guided tours are usually associated with consolidated workflows, composed of multiple tools, each of which is explained in terms of its function and parametrization options. However, such structure presents an analysis as monolithic: tools are pre-selected, and executed in cascade until the result is retrieved. With this unbreakable flow, users cannot readily appreciate the existence of alternative routes (tools) to compose their workflow analyses. At the same time, trainers willing to include such information within the designated training material, would have to continuously update every workflow mentioning each alternative tool.  
-To overcome these limitations, in the Galaxy Modular Workflow Generator we provide guided tours that focus on tools rather than workflows, therefore enabling users to perform a specific analysis not by strictly following a pre-defined path, but by walking one.
+With contributions from a growing community of developers and users, the number
+of *alternative* Galaxy tools addressing the same questions has steadily risen.
+For this reason, it has become harder for the user to make informed decisions
+on the selection of tools, and their parameterization.  
+The [Galaxy training material](https://galaxyproject.github.io/training-material/)
+has helped sharing best-practices where novice and expert users can learn new
+methods to carry out their analyses. However, tools are pre-selected by the
+community, and the absence of a systematic overview of the available
+alternative tools of a Galaxy instance, does not train users on how to evaluate
+alternative algorithms and parameterizations.  
 
-- [Usage](#usage)
-  - [Requirements](#requirements)
-  - [Launch](#launch)
-  - [Login credentials](#login-credentials)
-  - [How it works](#how-it-works)
-- [Available tools](#available-tools)
+The **Galaxy workflow generator** presents a different way of how to assist in
+the creation of Galaxy workflows. Here, single or multiple alternative Galaxy
+tools are provided as an **atom**: an interactive tour that illustrates tool
+options and parameterizations within the context of a selected analysis.  
+In this Galaxy instance, we provide sample analyses organized into their
+logical **tasks**. For example, an RNA-Seq analysis is organized into:
+- Task 1: Quality control and data preprocessing
+- Task 2: Genome alignment
+- Task 3: Transcript quantification and differential gene expression
+
+Each task can be completed by means of one or more alternative atoms.  
+The Galaxy workflow generator embeds a **plugin** that extends the Galaxy
+interface with novel interactive dialogs, which compare the alternative atoms
+that can be used to solve the current task in the selected analysis. Doing so,
+we are able to inform users about alternative tools and parameterizations.  
+
+The Figure below illustrates how the process of selecting atoms and building
+workflows takes place. Here, a user is carrying out an RNA-Seq analysis, which
+is divided into its three tasks: 1) Quality control and data preprocessing, 2)
+Genome alignment, 3) Transcript quantification and differential gene
+expression. For each task, the user selects the desired atom in the front-end
+interface, and navigates the corresponding interactive tour. The interactive
+tour drives the execution of each underlying tool in the Galaxy back-end. Once
+each task has been completed, the resulting workflow (traced in red), will thus
+be composed of the series of alternative tools of each selected atom,
+parameterized according to the interactive tour.
+
+<p align="center">
+  <img align="center"
+    src="web/process.png"
+    width="600px"
+    alt="Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses"
+    valign="top"/>
+</p>
+
+The Galaxy workflow generator collects alternative atoms to carry out RNA-Seq
+and BS/RRBS-Seq analyses.
+
+- [Tools](#tools)
   - [Quality control](#quality-control)
-  - [Read mapping](#read-mapping)
-  - [Differential gene expression analysis](#differential-gene-expression-analysis)
+  - [Mapping](#mapping)
+  - [RNA-Seq](#rna-seq)
+  - [BS/RRBS-Seq](#bs-rrbs-seq)
   - [Utilities](#utilities)
+- [Installation requirements](#installation-requirements)
+- [Run the instance](#run-the-instance)
+- [Login credentials](#login-credentials)
 - [Support and bug reports](#support-and-bug-reports)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 - [MIT license](#mit-license)
 
-# Usage
-This Galaxy instance is provided as a Docker container, developed from [Docker Galaxy Stable](https://github.com/bgruening/docker-galaxy-stable). Whether you are a user, a developer, or an administrator, you only need to have [Docker](https://www.docker.com/) set up to run the container. Here we illustrate how to do so.
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-## Requirements
+# Tools
 
-The only requirement is [Docker](https://www.docker.com/), which can be installed in different ways depending on your system:
-- Unix users should follow the [Docker installation for Linux](https://docs.docker.com/installation)
-- MacOS 10.12+ users should follow the [Docker installation for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
-- Windows 10+ users, should follow the [Docker installation for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-- Non-unix users whose operative system version is older than the aforementioned one, can rely on [Kitematic](https://kitematic.com/)
-
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-## Launch
-
-The Galaxy Docker container can be launched in different ways.
-
-### Without Kitematic
-
-Users not relying on Kitematic can open a terminal, or a Windows PowerShell if on Windows, and type:
-
-```
-$ docker run --rm --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-modular-workflow-generator:latest
-```
-
-An additional paramters will allow a subset of tools to use multiple threads
-
-```
-$ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
-```
-
-After that, the Galaxy instance can be accessed in a web browser at:
-
-```
-localhost:8080
-```
-
-We recommend using Google Chrome, Chromium, or Mozilla Firefox.
-
-### With Kitematic
-
-Kitematic users can instead launch the Galaxy instance by following [these instructions](https://docs.docker.com/kitematic/userguide/).
-
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-
-## Login credentials
-
-To be able to use the modular workflow generator, a user nees to be logged in. 
-
-- If you don't have one, please create it using the link provided at the top right corner
-- If you have one, please enter your credentials in the form at the top right corner
-- Galaxy administrators can instead use the default credentials username: `admin`, password: `admin`, and then change the settings later on
-
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-## How it works
-
-Here we show how the workflow generation takes place, and how users build their analyses.  
-The following scenario illustrates a differential gene expression analysis, whose best-practice steps are:
-- Data preprocessing and quality control
-- Mapping
-- Counting
-
-<p align="center">
-<img align="center" src="web/how-it-works.png" width="600px" alt="Galaxy Modular Workflow Generator for guided data analysis" valign="top"/>
-</p>
-
-**A**) An [interactive dialog](https://docs.galaxyproject.org/en/latest/admin/webhooks.html) asks the user how they intend to carry out data preprocessing and quality control. When a choice is selected, Galaxy launches the relative interactive tour to guide the user through tools, parametrisation, and the meaning of results.  
-
-**B**) Selected tools have alternative counterparts. For instance, Trim Galore! can be replaced by another sequence trimming tool. As a best-practice however, each trimming tool is execute before and after FastQC. At this point, a user wil run both FASTQC and Trim Galore! tours, and understand their functions, parametrisations, and outputs.  
-
-**C**) As the Data preprocessing phase ends, users are presented with another interactive dialog, asking which Mapping tool to use.  
-
-**D**) When the mapping phase ends, the counting phase starts. Once again, the modular workflow generator presents a set of best-practice tools, and users are requested to selected their tools of choice to complete the analysis.
-
-**E**) Finally, the workflows can be exported, and run on a different Galaxy instances.
-
-Before the modular workflow generation, *best practice workflows* were crafted from beginning to end, without presenting its users any alternative to carry out their analyses. With the present approach however, we break down a workflow in its phases, and show users alternative *best-practice tools* to build their workflows. This way,
-- Users can discover newly developed alternatives, and self train on a wider range of state-of-the-art tools;
-- Trainers can create flexible workflows to thread alternative best-practice tools into a single workflow.
-
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-# Available tools
 
 ## Quality control
 
 Tool | Description | Reference
---- | --- | ---
-[Cutadapt](https://cutadapt.readthedocs.io/en/stable) | Error-tolerant adapter removal tool for High-Throughput Sequencing reads | [Martin 2011](https://doi.org/10.14806/ej.17.1.200)
-[FastQC](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/) | A quality control tool for high throughput sequence data |
-[Sickle](https://github.com/najoshi/sickle) | Windowed adaptive trimming tool for FASTQ files | Joshi et al. 2011
-[Trim Galore!](https://www.bioinformatics.babraham.ac.uk/projects/trim_galore/) | Quality control tool for read trimming and filtering of NGS data |
-[Trimmomatic](https://www.usadellab.org/cms/?page=trimmomatic) | Quality control tool for read trimming and filtering of Illumina NGS data | [Bolger et al. 2014](https://doi.org/10.1093/bioinformatics/btu170)
-
+:---: | :--- | :---
+Cutadapt | Error-tolerant adapter removal tool for High-Throughput Sequencing reads | [Martin 2011](https://doi.org/10.14806/ej.17.1.200)
+FastQC | A quality control tool for high throughput sequence data | [Andrews](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
+PRINSEQ | A quality control and data preprocessing tool for metagenomic data | [Schmieder et al. 2011](https://doi.org/10.1093/bioinformatics/btr026)
+Trim Galore! | Quality control tool for read trimming and filtering of NGS data |
+Trimmomatic | Quality control tool for read trimming and filtering of Illumina NGS data | [Bolger et al. 2014](https://doi.org/10.1093/bioinformatics/btu170)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-## Read mapping
+
+## Mapping
 
 Tool | Description | Reference
---- | --- | ---
-[BWA](https://bio-bwa.sourceforge.net/) | Burrows-Wheeler Aligner for mapping low-divergent sequences against a large reference genome | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
-[HISAT2](https://ccb.jhu.edu/software/hisat2/) | Hierarchical indexing for spliced alignment of transcripts | [Pertea et al. 2016](https://doi.org/10.1038/nprot.2016.095)
-[Segemehl](https://www.bioinf.uni-leipzig.de/Software/segemehl/) | Short sequence read to reference genome mapper | [Otto et al. 2014](https://doi.org/10.1093/bioinformatics/btu146)
-[STAR](https://github.com/alexdobin/STAR) | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
-
+:---: | :--- | :---
+BWA | Burrows-Wheeler Aligner for mapping low-divergent sequences against a large reference genome | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
+bwameth | Fast and accurate aligner of BS-Seq reads | [Brent et al. 2014](https://arxiv.org/abs/1401.1129)
+HISAT2 | Hierarchical indexing for spliced alignment of transcripts | [Pertea et al. 2016](https://doi.org/10.1038/nprot.2016.095)
+segemehl | Short sequence read to reference genome mapper | [Otto et al. 2014](https://doi.org/10.1093/bioinformatics/btu146)
+STAR | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-## Differential gene expression analysis
+## RNA-Seq
 
 Tool | Description | Reference
---- | --- | ---
-[DESeq2](https://bioconductor.org/packages/release/bioc/html/DESeq2.html) | Differential gene expression analysis based on the negative binomial distribution | [Love et al. 2014](https://doi.org/10.1186/s13059-014-0550-8)
-[featureCounts](http://bioinf.wehi.edu.au/featureCounts/) | Genomic feature read count tool for summarising of genes, exons, and promoter counts | [Liao et al. 2014](https://doi.org/10.1093/bioinformatics/btt656)
-[htseq-count](https://www-huber.embl.de/HTSeq/doc/count.html) | Tool for counting reads in features | [Anders et al. 2015](https://doi.org/10.1093%2Fbioinformatics%2Fbtu638)
-[RSeQC](http://rseqc.sourceforge.net) | An RNA-seq Quality Control Package | [Wang et al. 2012](https://doi.org/10.1093/bioinformatics/bts356)
-
+:---: | :--- | :---
+BWA | Burrows-Wheeler Aligner for mapping low-divergent sequences against a large reference genome | [Li and Durbin 2010](https://doi.org/10.1093/bioinformatics/btp698)
+DESeq2 | Differential gene expression analysis based on the negative binomial distribution | [Love et al. 2014](https://doi.org/10.1186/s13059-014-0550-8)
+featureCounts | Genomic feature read count tool for summarising of genes, exons, and promoter counts | [Liao et al. 2014](https://doi.org/10.1093/bioinformatics/btt656)
+HISAT2 | Hierarchical indexing for spliced alignment of transcripts | [Pertea et al. 2016](https://doi.org/10.1038/nprot.2016.095)
+HTSeq-count | Tool for counting reads in features | [Anders et al. 2015](https://doi.org/10.1093/bioinformatics/btu638)
+Rcorrector | A kmer-based error correction method for RNA-seq data | [Song et al. 2015](https://doi.org/10.1186/s13742-015-0089-y)
+RSeQC | An RNA-seq Quality Control Package | [Wang et al. 2012](https://doi.org/10.1093/bioinformatics/bts356)
+SortMeRNA | A tool for filtering, mapping and OTU-picking NGS reads in metatranscriptomic and -genomic data | [Kopylova et al. 2011](https://doi.org/10.1093/bioinformatics/bts611)
+STAR | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.org/10.1093/bioinformatics/bts635)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-## Bisulfite sequencing data analysi
-sTool | Description | Reference
---- | --- | ---
-[Bismark](https://www.bioinformatics.babraham.ac.uk/projects/bismark) | Bismark is a program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls | [Krueger et al. 2011](https://doi.org/10.1093/bioinformatics/btr167)
-[MethylDackel](https://github.com/dpryan79/MethylDackel) | A tool extract per-base methylation metrics from coordinate-sorted and indexed BS-seq alignments | [Devon Ryan](https://github.com/dpryan79/MethylDackel)
+
+## BS/RRBS-Seq
+
+Tool | Description | Reference
+:---: | :--- | :---
+Bismark | A program to map bisulfite treated sequencing reads to a genome of interest and perform methylation calls | [Krueger et al. 2011](https://doi.org/10.1093/bioinformatics/btr167)
+bwameth | Fast and accurate aligner of BS-Seq reads | [Brent et al. 2014](https://arxiv.org/abs/1401.1129)
+MethylDackel | A tool to extract per-base methylation metrics from coordinate-sorted and indexed BS-seq alignments | [Ryan](https://github.com/dpryan79/MethylDackel)
+segemehl | Short sequence read to reference genome mapper | [Otto et al. 2014](https://doi.org/10.1093/bioinformatics/btu146)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 ## Utilities
 
 Tool | Description | Reference
---- | --- | ---
-[SAMtools](https://samtools.sourceforge.net/) | Utilities for manipulating alignments in the SAM format | [Heng et al. 2009](https://doi.org/10.1093/bioinformatics/btp352)
-[BLAST+](ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST) | A software library of tools for sequence similarity search | [Camacho et al. 2009](https://doi.org/10.1186/1471-2105-10-421)
-[SortMeRNA](https://bioinfo.lifl.fr/RNA/sortmerna/) | A tool for filtering, mapping and OTU-picking NGS reads in metatranscriptomic and -genomic data | [Kopylova et al. 2011](https://doi.org/10.1093/bioinformatics/bts611)
-[Rcorrector](https://github.com/mourisl/Rcorrector) | Rcorrector is a kmer-based error correction method for RNA-seq data | [Song et al. 2015](https://doi.org/10.1186/s13742-015-0089-y)
-
+:---: | :--- | :---
+SAMtools | Utilities for manipulating alignments in the SAM format | [Heng et al. 2009](https://doi.org/10.1093/bioinformatics/btp352)
+BEDTools | Utilities for genome arithmetic | [Quinlan et al. 2010](https://doi.org/10.1093/bioinformatics/btq033)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+# Installation requirements
+
+The only requirement is [Docker](https://www.docker.com/), which can be installed in different ways depending on the underlying system:
+- Unix users should follow the [Docker installation for Linux](https://docs.docker.com/installation)
+- MacOS 10.12+ users should follow the [Docker installation for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
+- Windows 10+ users, should follow the [Docker installation for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+- Non-unix users, whose operative system version is older than the aforementioned one, can rely on [Kitematic](https://kitematic.com/)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+# Run the instance
+
+- Users not relying on Kitematic can open a terminal, or a Windows PowerShell, and type:
+```
+$ docker run --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-workflow-generator:latest
+```
+> To allow the use of multiple threads, please prefix the aforementioned command in the following way:
+>
+> ``
+> $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
+> ``
+
+- Kitematic users can launch the Galaxy instance by following [these instructions](https://docs.docker.com/kitematic/userguide/).
+
+After running the container, the Galaxy instance can be accessed from the local web browser, at the address
+``
+localhost:8080
+``.  
+We recommend using Google Chrome, Chromium, or Mozilla Firefox.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+# Login credentials
+
+To be able to analyse data, users need to be logged in.
+- Galaxy users can create an account by clicking on the ``Login or Register`` button, on the top header
+- Galaxy administrators can use the default credentials username: `admin`, password: `admin`, and then change settings later on.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 # Support and bug reports
 
-If you have questions, or don't know how to solve a problem using the provided Galaxy instance, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues).
-
+If you have questions, or don't know how to solve a problem, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-workflow-generator/issues).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 # Contributing
 
-New contributions are always welcome. Please read [these instructions](
-https://github.com/destairdenbi/galaxy-modular-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
-
+New contributions are always welcome. Please read [these instructions](https://github.com/destairdenbi/galaxy-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 # Contributors
 
@@ -183,8 +191,8 @@ https://github.com/destairdenbi/galaxy-modular-workflow-generator/blob/master/CO
  - [Steffen Lott](https://github.com/lotts)
  - [Konstantin Riege](https://github.com/koriege)
  - [Markus Wolfien](https://github.com/mwolfien)
-
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 # MIT license
 
@@ -205,5 +213,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
