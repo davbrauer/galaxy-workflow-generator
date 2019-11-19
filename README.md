@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator.svg?branch=master)](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator)
 [![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-workflow-generator/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-workflow-generator)
 
-Galaxy workflow generator for assisted RNA-Seq and BS-Seq data analyses
+Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses
 =======================================================================
 
 With contributions from a growing community of developers and users, the number
@@ -24,14 +24,12 @@ logical **tasks**. For example, an RNA-Seq analysis is organized into:
 - Task 1: Quality control and data preprocessing
 - Task 2: Genome alignment
 - Task 3: Transcript quantification and differential gene expression
+
 Each task can be completed by means of one or more alternative atoms.  
 The Galaxy workflow generator embeds a **plugin** that extends the Galaxy
 interface with novel interactive dialogs, which compare the alternative atoms
 that can be used to solve the current task in the selected analysis. Doing so,
 we are able to inform users about alternative tools and parameterizations.  
-
-The Galaxy workflow generator collects alternative atoms to carry out RNA-Seq
-and BS/RRBS-Seq analyses.
 
 The Figure below illustrates how the process of selecting atoms and building
 workflows takes place. Here, a user is carrying out an RNA-Seq analysis, which
@@ -51,6 +49,9 @@ parameterized according to the interactive tour.
     alt="Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses"
     valign="top"/>
 </p>
+
+The Galaxy workflow generator collects alternative atoms to carry out RNA-Seq
+and BS/RRBS-Seq analyses.
 
 - [Tools](#tools)
   - [Quality control](#quality-control)
