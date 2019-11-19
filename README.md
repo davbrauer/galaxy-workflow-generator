@@ -4,92 +4,68 @@
 Galaxy workflow generator for assisted RNA-Seq and BS-Seq data analyses
 =======================================================================
 
-The Galaxy workflow generator is a self-contained Galaxy instance, comprising a set of analysis tools and related guided tours.  
-Guided tours are usually associated with consolidated workflows, composed of multiple tools, each of which is explained in terms of its function and parametrization options. However, such structure presents an analysis as monolithic: tools are pre-selected, and executed in cascade until the result is retrieved. With this unbreakable flow, users cannot readily appreciate the existence of alternative routes (tools) to compose their workflow analyses. At the same time, trainers willing to include such information within the designated training material, would have to continuously update every workflow mentioning each alternative tool.  
-To overcome these limitations, in the Galaxy workflow generator we provide guided tours that focus on tools rather than workflows, therefore enabling users to perform a specific analysis not by strictly following a pre-defined path, but by walking one.
+With contributions from a growing community of developers and users, the number
+of *alternative* Galaxy tools addressing the same questions has steadily risen.
+For this reason, it has become harder for the user to make informed decisions
+on the selection of tools, and their parameterization.  
+The [Galaxy training material](https://galaxyproject.github.io/training-material/)
+has helped sharing best-practices where novice and expert users can learn new
+methods to carry out their analyses. However, tools are pre-selected by the
+community, and the absence of a systematic overview of the available
+alternative tools of a Galaxy instance, does not train users on how to evaluate
+alternative algorithms and parameterizations.  
 
-- [Installation requirements](#installation-requirements)
-- [Usage](#usage)
-- [Login credentials](#login-credentials)
+The **Galaxy workflow generator** presents a different way of how to assist in
+the creation of Galaxy workflows. Here, single or multiple alternative Galaxy
+tools are provided as an **atom**: an interactive tour that illustrates tool
+options and parameterizations within the context of a selected analysis.  
+In this Galaxy instance, we provide sample analyses organized into their
+logical **tasks**. For example, an RNA-Seq analysis is organized into:
+- Task 1: Quality control and data preprocessing
+- Task 2: Genome alignment
+- Task 3: Transcript quantification and differential gene expression
+Each task can be completed by means of one or more alternative atoms.  
+The Galaxy workflow generator embeds a **plugin** that extends the Galaxy
+interface with novel interactive dialogs, which compare the alternative atoms
+that can be used to solve the current task in the selected analysis. Doing so,
+we are able to inform users about alternative tools and parameterizations.  
+
+The Galaxy workflow generator collects alternative atoms to carry out RNA-Seq
+and BS/RRBS-Seq analyses.
+
+The Figure below illustrates how the process of selecting atoms and building
+workflows takes place. Here, a user is carrying out an RNA-Seq analysis, which
+is divided into its three tasks: 1) Quality control and data preprocessing, 2)
+Genome alignment, 3) Transcript quantification and differential gene
+expression. For each task, the user selects the desired atom in the front-end
+interface, and navigates the corresponding interactive tour. The interactive
+tour drives the execution of each underlying tool in the Galaxy back-end. Once
+each task has been completed, the resulting workflow (traced in red), will thus
+be composed of the series of alternative tools of each selected atom,
+parameterized according to the interactive tour.
+
+<p align="center">
+  <img align="center"
+    src="web/process.png"
+    width="600px"
+    alt="Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses"
+    valign="top"/>
+</p>
+
 - [Tools](#tools)
   - [Quality control](#quality-control)
   - [Mapping](#mapping)
   - [RNA-Seq](#rna-seq)
   - [BS/RRBS-Seq](#bs-rrbs-seq)
   - [Utilities](#utilities)
+- [Installation requirements](#installation-requirements)
+- [Run the instance](#run-the-instance)
+- [Login credentials](#login-credentials)
 - [Support and bug reports](#support-and-bug-reports)
 - [Contributing](#contributing)
 - [Contributors](#contributors)
 - [MIT license](#mit-license)
 
-
-# Installation requirements
-
-The only requirement is [Docker](https://www.docker.com/), which can be installed in different ways depending on the underlying system:
-- Unix users should follow the [Docker installation for Linux](https://docs.docker.com/installation)
-- MacOS 10.12+ users should follow the [Docker installation for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
-- Windows 10+ users, should follow the [Docker installation for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-- Non-unix users, whose operative system version is older than the aforementioned one, can rely on [Kitematic](https://kitematic.com/)
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-
-# Usage
-
-- Users not relying on Kitematic can open a terminal, or a Windows PowerShell, and type:
-```
-$ docker run --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-workflow-generator:latest
-```
-> To allow the use of multiple threads, please prefix the aforementioned command with the following commands
->
-> ``
-> $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
-> ``
-
-- Kitematic users can launch the Galaxy instance by following [these instructions](https://docs.docker.com/kitematic/userguide/).
-
-After running the container, the Galaxy instance can be accessed from the local web browser, at the address
-``
-localhost:8080
-``.  
-We recommend using Google Chrome, Chromium, or Mozilla Firefox.
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-
-# Login credentials
-
-To be able to analyse data, users need to be logged in.
-- Galaxy users can create an account by clicking on the ``Login or Register`` button, on the top header
-- Galaxy administrators can use the default credentials username: `admin`, password: `admin`, and then change settings later on.
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-<!--
-## How it works
-Here we show how the workflow generation takes place, and how users build their analyses.  
-The following scenario illustrates a differential gene expression analysis, whose best-practice steps are:
-- Data preprocessing and quality control
-- Mapping
-- Counting
-
-<p align="center">
-<img align="center" src="web/how-it-works.png" width="600px" alt="Galaxy workflow generator for guided data analysis" valign="top"/>
-</p>
-
-**A**) An [interactive dialog](https://docs.galaxyproject.org/en/latest/admin/webhooks.html) asks the user how they intend to carry out data preprocessing and quality control. When a choice is selected, Galaxy launches the relative interactive tour to guide the user through tools, parametrisation, and the meaning of results.  
-
-**B**) Selected tools have alternative counterparts. For instance, Trim Galore! can be replaced by another sequence trimming tool. As a best-practice however, each trimming tool is execute before and after FastQC. At this point, a user wil run both FASTQC and Trim Galore! tours, and understand their functions, parametrisations, and outputs.  
-
-**C**) As the Data preprocessing phase ends, users are presented with another interactive dialog, asking which Mapping tool to use.  
-
-**D**) When the mapping phase ends, the counting phase starts. Once again, the workflow generator presents a set of best-practice tools, and users are requested to selected their tools of choice to complete the analysis.
-
-**E**) Finally, the workflows can be exported, and run on a different Galaxy instances.
-
-Before the workflow generation, *best practice workflows* were crafted from beginning to end, without presenting its users any alternative to carry out their analyses. With the present approach however, we break down a workflow in its phases, and show users alternative *best-practice tools* to build their workflows. This way,
-- Users can discover newly developed alternatives, and self train on a wider range of state-of-the-art tools;
-- Trainers can create flexible workflows to thread alternative best-practice tools into a single workflow.
-
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
--->
 
 # Tools
 
@@ -151,6 +127,46 @@ Tool | Description | Reference
 :---: | :--- | :---
 SAMtools | Utilities for manipulating alignments in the SAM format | [Heng et al. 2009](https://doi.org/10.1093/bioinformatics/btp352)
 BEDTools | Utilities for genome arithmetic | [Quinlan et al. 2010](https://doi.org/10.1093/bioinformatics/btq033)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+# Installation requirements
+
+The only requirement is [Docker](https://www.docker.com/), which can be installed in different ways depending on the underlying system:
+- Unix users should follow the [Docker installation for Linux](https://docs.docker.com/installation)
+- MacOS 10.12+ users should follow the [Docker installation for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
+- Windows 10+ users, should follow the [Docker installation for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+- Non-unix users, whose operative system version is older than the aforementioned one, can rely on [Kitematic](https://kitematic.com/)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+# Run the instance
+
+- Users not relying on Kitematic can open a terminal, or a Windows PowerShell, and type:
+```
+$ docker run --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-workflow-generator:latest
+```
+> To allow the use of multiple threads, please prefix the aforementioned command in the following way:
+>
+> ``
+> $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
+> ``
+
+- Kitematic users can launch the Galaxy instance by following [these instructions](https://docs.docker.com/kitematic/userguide/).
+
+After running the container, the Galaxy instance can be accessed from the local web browser, at the address
+``
+localhost:8080
+``.  
+We recommend using Google Chrome, Chromium, or Mozilla Firefox.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+# Login credentials
+
+To be able to analyse data, users need to be logged in.
+- Galaxy users can create an account by clicking on the ``Login or Register`` button, on the top header
+- Galaxy administrators can use the default credentials username: `admin`, password: `admin`, and then change settings later on.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
