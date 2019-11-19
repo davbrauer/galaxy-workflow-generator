@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator.svg?branch=master)](https://travis-ci.org/destairdenbi/galaxy-modular-workflow-generator)
+[![Build Status](https://travis-ci.org/destairdenbi/galaxy-workflow-generator.svg?branch=master)](https://travis-ci.org/destairdenbi/galaxy-workflow-generator)
 [![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-workflow-generator/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-workflow-generator)
 
 Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses
