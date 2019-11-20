@@ -23,5 +23,4 @@ install:
 
 script:
   - make test_api
-  - make test_ftp
   - make test_bioblend
