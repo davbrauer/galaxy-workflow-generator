@@ -1,89 +1,103 @@
 # Contributing
 
-New contributions are always welcome. Here we describe how to do so. If instead you have questions or don't know how to solve a problem using the provided Galaxy instance, please file an [issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues), or contact us [here](https://destair.bioinf.uni-leipzig.de/about/).
+New contributions are always welcome. Here we describe how to do so. If you have questions or don't know how to solve a problem using the provided Galaxy instance, please [file an issue](https://github.com/destairdenbi/galaxy-modular-workflow-generator/issues), or [contact us](https://destair.bioinf.uni-leipzig.de/about/).
 
-## Using Git
+- [How to use Git](#how-to-use-git)
+- [How to use Docker](#how-to-use-docker)
+- [How to run the Galaxy workflow generator](#how-to-run-the-galaxy-workflow-generator)
+  - [Build the Docker image](#build-the-docker-image)
+  - [Run the Docker image](#run-the-docker-image)
+  - [Port mapping](#port-mapping)
+  - [Storage](#storage)
+  - [Restart the container](#restart-the-container)
+- [Atoms, tools, plugin](##atoms-tools-plugin)
+
+
+## How to use Git
 
 All changes to the provided Galaxy instance have to be made through pull requests on [GitHub](https://github.com/). 
-If you are new to Git, try [this tutorial](https://try.github.com/) first. Additional material can be found [here](https://help.github.com/articles/good-resources-for-learning-git-and-github/). Once done, follow this procedure:
+If you are new to Git, please try [this tutorial](https://try.github.com/) first. Additional material can be found [here](https://help.github.com/articles/good-resources-for-learning-git-and-github/).  
+Once done, you can follow this procedure:
 
-- Fork the current repository, and create your own branch to record your changes.
-- Commit and push your changes to your [fork](https://help.github.com/articles/pushing-to-a-remote/).
-- Open a [pull request](https://help.github.com/articles/creating-a-pull-request/). You pull request message should include:
-  - A description of why the changes should be applied.
-  - A description of the implementation of the changes.
-  - A description of how to test the changes.
-- The pull request should pass the continuous integration tests which are automatically run by GitHub using e.g. Travis CI.
-- Your pull request will be reviewed and eventually merged.
-- To keep your copy aligned to the main repository, you need to [syncronise your fork](https://help.github.com/articles/syncing-a-fork/). Make sure to do this frequently.
+- Fork the current repository, and create your own branch to record your changes
+- Commit and [push](https://help.github.com/articles/pushing-to-a-remote/) your changes to your fork
+- Open a [pull request](https://help.github.com/articles/creating-a-pull-request/). Your pull request message should include:
+  - A description of why the changes should be applied
+  - A description of the implementation of the changes
+  - A description of how to test the changes
+- The pull request should pass the continuous integration tests which are automatically run by GitHub using *e.g.* [Travis CI.](https://travis-ci.org/)
+- Your pull request will be reviewed and eventually merged
+- To keep your copy aligned to the main repository, you need to [syncronise your fork](https://help.github.com/articles/syncing-a-fork/)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-## Using Docker
+
+## How to use Docker
 
 For usage options, consider referring to the [Docker manual](https://docs.docker.io/). Otherwise, here are some tips for building, running, and modifying the service's underlying Docker container.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+## How to run the Galaxy workflow generator
+
+The following sections explain how to set up the Galaxy workflow generator, and run it with customized parameters.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 ### Build the Docker image
 
-To build the Docker image locally, using the provided Dockerfile:
-
+Clone the Galaxy workflow generator
 ```
-docker build -t destairdenbi/galaxy-modular-workflow-generator:17.05 .
+$ git clone https://github.com/bagnacan/destair-galaxy-workflow-generator.git
 ```
 
-### Port mapping
-
-To remap the ports for accessing Galaxy server e.g. via url ``localhost``:
-
+Enter the cloned repository, and build the Docker container locally
 ```
-docker run -p 8080:80 -p 8021:21 quay.io/destair/galaxy-modular-workflow-generator:latest
+docker build -t destairdenbi/galaxy-workflow-generator:19.01 .
 ```
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
 
 ### Run the Docker image
 
-To run the Docker image locally:
+Execute this command to run the latest Docker image locally
 
 ```
 docker run -d -p 8080:80 quay.io/destair/galaxy-modular-workflow-generator:latest
-
 ```
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+### Port mapping
+
+You can customize the ports to access the Galaxy workflow generator
+```
+docker run -p 8081:80 -p 8022:21 quay.io/destair/galaxy-workflow-generator:latest
+```
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
 
 ### Storage
-
-To run the Docker image and make Docker exporting the contents of its ``/export`` directory on local disk:
-
+You can run the Galaxy Docker container by creating a *bind mount* to export the contents the ``/export`` directory on the local disk:
 ```
-docker run -d -p 8080:80 -v /absolute/path/to/local/directory/:/export/ quay.io/destair/galaxy-modular-workflow-generator:latest
+docker run -d -p 8080:80 -v /absolute/path/to/local/directory/:/export/ quay.io/destair/galaxy-workflow-generator:latest
 ```
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-### Restart container
 
-To restart the running Docker container:
+### Restart the container
 
+You can restart the running Docker container
 ```
 supervisorctl restart galaxy:
 ```
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
-## Tours
 
-For creating new interactive tours and testing them within the provided Galaxy instance, follow this procedure:
+## Atoms, tools, plugin
 
-- Launch the Docker container with an attached local volume:
-
-```
-docker run -d -p 8080:80 -v /absolute/path/to/local/directory/:/export/ destair/galaxy-modular-workflow-generator:latest
-```
-
-- Copy your new tutorial in the tours directory:
-
-```
-/absolute/path/to/local/directory/galaxy-central/config/plugins/tours
-```
-
-- Reload the Galaxy Docker container:
-
-```
-docker exec CONTAINER_ID supervisorctl restart galaxy:
-```
-
-## Testing Webhooks
-
-For testing the Galaxy webhook, follow [this procedure](https://github.com/destairdenbi/webhooks).
+To create new atoms, new tools, or modify the plugin to assist users in their analysis, please refer to the dedicated contributing sections:
+- [How to contribute to the atoms](https://github.com/destairdenbi/galaxy-atoms)
+- [How to contribute to the plugin](https://github.com/destairdenbi/galaxy-webhooks)
+- [How to contribute to the tools](https://github.com/destairdenbi/galaxy-tools)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
