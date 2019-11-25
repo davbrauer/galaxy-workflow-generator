@@ -47,7 +47,7 @@ The following sections explain how to set up the Galaxy workflow generator, and 
 
 Clone the Galaxy workflow generator
 ```
-$ git clone https://github.com/bagnacan/destair-galaxy-workflow-generator.git
+$ git clone https://github.com/destairdenbi/galaxy-workflow-generator.git
 ```
 
 Enter the cloned repository, and build the Docker container locally
