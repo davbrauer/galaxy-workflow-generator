@@ -18,6 +18,31 @@ community, and the absence of a systematic overview of the available
 alternative tools of a Galaxy instance, does not train users on how to evaluate
 alternative algorithms and parameterizations.  
 
+The **Galaxy workflow generator** provides an overview of the available
+alternative tools that users can use to build RNA-Seq and BS-Seq analyses.
+Here, users are presented with new interactive pop-ups to compare and evaluate
+the suitability of each tool during the course of the analysis.
+
+
+- [How it works](#how-it-works)
+- [Run the instance](#run-the-instance)
+  - [Installation requirements](#installation-requirements)
+  - [Run the container](#run-the-container)
+  - [Login credentials](#login-credentials)
+- [Tools](#tools)
+  - [Quality control](#quality-control)
+  - [Mapping](#mapping)
+  - [RNA-Seq](#rna-seq)
+  - [BS/RRBS-Seq](#bs-rrbs-seq)
+  - [Utilities](#utilities)
+- [Support](#support)
+  - [Contributing](#contributing)
+  - [Contributors](#contributors)
+- [MIT license](#mit-license)
+
+
+## How it works
+
 The **Galaxy workflow generator** presents a different way of how to assist in
 the creation of Galaxy workflows. Here, single or multiple alternative Galaxy
 tools are provided as an **atom**: an interactive tour that illustrates tool
@@ -49,31 +74,12 @@ parameterized according to the interactive tour.
   <img align="center"
     src="web/process.png"
     width="600px"
-    alt="Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses"
+    alt="Assisted RNA-Seq analysis in the Galaxy workflow generator"
     valign="top"/>
 </p>
 
 The Galaxy workflow generator collects alternative atoms to carry out RNA-Seq
 and BS/RRBS-Seq analyses.
-
-- [How it works](#how-it-works)
-- [Run the instance](#run-the-instance)
-  - [Installation requirements](#installation-requirements)
-  - [Run the container](#run-the-container)
-  - [Login credentials](#login-credentials)
-- [Tools](#tools)
-  - [Quality control](#quality-control)
-  - [Mapping](#mapping)
-  - [RNA-Seq](#rna-seq)
-  - [BS/RRBS-Seq](#bs-rrbs-seq)
-  - [Utilities](#utilities)
-- [Support](#support)
-  - [Contributing](#contributing)
-  - [Contributors](#contributors)
-- [MIT license](#mit-license)
-
-
-## How it works
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
