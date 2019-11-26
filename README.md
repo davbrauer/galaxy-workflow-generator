@@ -109,13 +109,14 @@ aforementioned one, can rely on [Kitematic](https://kitematic.com/)
 Users not relying on Kitematic can open a terminal, or a Windows PowerShell,
 and type:
 ```
-$ docker run --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-workflow-generator:latest
+$ docker run --net bridge -d -p 8080:80 --name destair quay.io/destair/galaxy-workflow-generator:latest
 ```
 > To allow the use of multiple threads, please prefix the aforementioned
 > command in the following way:
 >
 > ``
-> $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
+> $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" \
+>   -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
 > ``
 
 Kitematic users can launch the Galaxy instance by following
