@@ -33,7 +33,7 @@ the suitability of each tool during the course of the analysis.
   - [Quality control](#quality-control)
   - [Mapping](#mapping)
   - [RNA-Seq](#rna-seq)
-  - [BS/RRBS-Seq](#bs-rrbs-seq)
+  - [BS/RRBS-Seq](#bsrrbs-seq)
   - [Utilities](#utilities)
 - [Support](#support)
   - [Contributing](#contributing)
