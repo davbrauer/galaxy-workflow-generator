@@ -141,8 +141,8 @@ password: `admin`, and then change settings later on.
 ## Tools
 
 The tools catalog is bound to be modified and expanded during the development
-of the Galaxy workflow generator. The following list provides an overview of
-the tools that have been installed so far.
+of the Galaxy workflow generator.  
+The following list provides an overview of the tools that have been installed so far.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
