@@ -114,10 +114,10 @@ $ docker run --net bridge -d -p 8080:80 --name destair quay.io/destair/galaxy-wo
 > To allow the use of multiple threads, please prefix the aforementioned
 > command in the following way:
 >
-> ``
+> ```
 > $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" \
 >   -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
-> ``
+> ```
 
 Kitematic users can launch the Galaxy instance by following
 [these instructions](https://docs.docker.com/kitematic/userguide/).
