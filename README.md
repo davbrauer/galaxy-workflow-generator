@@ -1,8 +1,11 @@
+<div id="top"></div>
+
+
 [![Build Status](https://travis-ci.org/destairdenbi/galaxy-workflow-generator.svg?branch=master)](https://travis-ci.org/destairdenbi/galaxy-workflow-generator)
 [![Docker Repository on Quay](https://quay.io/repository/destair/galaxy-workflow-generator/status "Docker Repository on Quay")](https://quay.io/repository/destair/galaxy-workflow-generator)
 
-Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses
-=======================================================================
+
+# Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses
 
 With contributions from a growing community of developers and users, the number
 of *alternative* Galaxy tools addressing the same questions has steadily risen.
@@ -14,6 +17,31 @@ methods to carry out their analyses. However, tools are pre-selected by the
 community, and the absence of a systematic overview of the available
 alternative tools of a Galaxy instance, does not train users on how to evaluate
 alternative algorithms and parameterizations.  
+
+The **Galaxy workflow generator** provides an overview of the available
+alternative tools that users can use to build RNA-Seq and BS-Seq analyses.
+Here, users are presented with new interactive pop-ups to compare and evaluate
+the suitability of each tool during the course of the analysis.
+
+
+- [How it works](#how-it-works)
+- [Run the instance](#run-the-instance)
+  - [Installation requirements](#installation-requirements)
+  - [Run the container](#run-the-container)
+  - [Login credentials](#login-credentials)
+- [Tools](#tools)
+  - [Quality control](#quality-control)
+  - [Mapping](#mapping)
+  - [RNA-Seq](#rna-seq)
+  - [BS/RRBS-Seq](#bsrrbs-seq)
+  - [Utilities](#utilities)
+- [Support](#support)
+  - [Contributing](#contributing)
+  - [Contributors](#contributors)
+- [MIT license](#mit-license)
+
+
+## How it works
 
 The **Galaxy workflow generator** presents a different way of how to assist in
 the creation of Galaxy workflows. Here, single or multiple alternative Galaxy
@@ -46,32 +74,79 @@ parameterized according to the interactive tour.
   <img align="center"
     src="web/process.png"
     width="600px"
-    alt="Galaxy workflow generator for assisted RNA-Seq and BS/RRBS-Seq analyses"
+    alt="Assisted RNA-Seq analysis in the Galaxy workflow generator"
     valign="top"/>
 </p>
 
 The Galaxy workflow generator collects alternative atoms to carry out RNA-Seq
 and BS/RRBS-Seq analyses.
-
-- [Tools](#tools)
-  - [Quality control](#quality-control)
-  - [Mapping](#mapping)
-  - [RNA-Seq](#rna-seq)
-  - [BS/RRBS-Seq](#bs-rrbs-seq)
-  - [Utilities](#utilities)
-- [Installation requirements](#installation-requirements)
-- [Run the instance](#run-the-instance)
-- [Login credentials](#login-credentials)
-- [Support and bug reports](#support-and-bug-reports)
-- [Contributing](#contributing)
-- [Contributors](#contributors)
-- [MIT license](#mit-license)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-# Tools
+## Run the instance
+The Galaxy workflow generator can run on you machine. The following sections
+will help you set up and run the instance.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-## Quality control
+### Installation requirements
+
+The only requirement is [Docker](https://www.docker.com/), which can be
+installed in different ways depending on the underlying system:
+- Unix users should follow the
+[Docker installation for Linux](https://docs.docker.com/installation)
+- MacOS 10.12+ users should follow the
+[Docker installation for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
+- Windows 10+ users, should follow the
+[Docker installation for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
+- Non-unix users, whose operative system version is older than the
+aforementioned one, can rely on [Kitematic](https://kitematic.com/)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+### Run the container
+
+Users not relying on Kitematic can open a terminal, or a Windows PowerShell,
+and type:
+```
+$ docker run --net bridge -d -p 8080:80 --name destair quay.io/destair/galaxy-workflow-generator:latest
+```
+> To allow the use of multiple threads, please prefix the aforementioned
+> command in the following way:
+>
+> ```
+> $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" \
+>   -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
+> ```
+
+Kitematic users can launch the Galaxy instance by following
+[these instructions](https://docs.docker.com/kitematic/userguide/).
+
+After running the container, the Galaxy instance can be accessed from the local
+web browser, at the address ``localhost:8080``.  
+We recommend using Google Chrome, Chromium, or Mozilla Firefox.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+### Login credentials
+
+To be able to analyse data, users need to be logged in.
+- Galaxy users can create an account by clicking on the ``Login or Register``
+button, on the top header
+- Galaxy administrators can use the default credentials username: `admin`,
+password: `admin`, and then change settings later on.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+## Tools
+
+The tools catalog is bound to be modified and expanded during the development
+of the Galaxy workflow generator.  
+The following list provides an overview of the tools that have been installed so far.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+### Quality control
 
 Tool | Description | Reference
 :---: | :--- | :---
@@ -83,7 +158,7 @@ Trimmomatic | Quality control tool for read trimming and filtering of Illumina N
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-## Mapping
+### Mapping
 
 Tool | Description | Reference
 :---: | :--- | :---
@@ -95,7 +170,7 @@ STAR | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-## RNA-Seq
+### RNA-Seq
 
 Tool | Description | Reference
 :---: | :--- | :---
@@ -111,7 +186,7 @@ STAR | Rapid spliced aligner for RNA-seq data | [Dobin et al. 2013](https://doi.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-## BS/RRBS-Seq
+### BS/RRBS-Seq
 
 Tool | Description | Reference
 :---: | :--- | :---
@@ -122,7 +197,7 @@ segemehl | Short sequence read to reference genome mapper | [Otto et al. 2014](h
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-## Utilities
+### Utilities
 
 Tool | Description | Reference
 :---: | :--- | :---
@@ -131,70 +206,34 @@ BEDTools | Utilities for genome arithmetic | [Quinlan et al. 2010](https://doi.o
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-# Installation requirements
+## Support
 
-The only requirement is [Docker](https://www.docker.com/), which can be installed in different ways depending on the underlying system:
-- Unix users should follow the [Docker installation for Linux](https://docs.docker.com/installation)
-- MacOS 10.12+ users should follow the [Docker installation for Mac](https://hub.docker.com/editions/community/docker-ce-desktop-mac)
-- Windows 10+ users, should follow the [Docker installation for Windows](https://hub.docker.com/editions/community/docker-ce-desktop-windows)
-- Non-unix users, whose operative system version is older than the aforementioned one, can rely on [Kitematic](https://kitematic.com/)
+If you have questions, or don't know how to solve a problem, please contact us
+[here](https://destair.bioinf.uni-leipzig.de/about/), or file an
+[issue](https://github.com/destairdenbi/galaxy-workflow-generator/issues).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-# Run the instance
+### Contributing
 
-- Users not relying on Kitematic can open a terminal, or a Windows PowerShell, and type:
-```
-$ docker run --net bridge -d -p 8080:80 --name destair --hostname destair quay.io/destair/galaxy-workflow-generator:latest
-```
-> To allow the use of multiple threads, please prefix the aforementioned command in the following way:
->
-> ``
-> $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
-> ``
-
-- Kitematic users can launch the Galaxy instance by following [these instructions](https://docs.docker.com/kitematic/userguide/).
-
-After running the container, the Galaxy instance can be accessed from the local web browser, at the address
-``
-localhost:8080
-``.  
-We recommend using Google Chrome, Chromium, or Mozilla Firefox.
+New contributions are always welcome. Please read
+[these instructions](https://github.com/destairdenbi/galaxy-workflow-generator/blob/master/CONTRIBUTING.md)
+before proceeding in doing so.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-# Login credentials
+### Contributors
 
-To be able to analyse data, users need to be logged in.
-- Galaxy users can create an account by clicking on the ``Login or Register`` button, on the top header
-- Galaxy administrators can use the default credentials username: `admin`, password: `admin`, and then change settings later on.
+- [Andrea Bagnacani](https://github.com/bagnacan)
+- [Bérénice Batut](https://github.com/bebatut)
+- [Björn Grüning](https://github.com/bgruening)
+- [Steffen Lott](https://github.com/lotts)
+- [Konstantin Riege](https://github.com/koriege)
+- [Markus Wolfien](https://github.com/mwolfien)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
-# Support and bug reports
-
-If you have questions, or don't know how to solve a problem, please contact us [here](https://destair.bioinf.uni-leipzig.de/about/), or file an [issue](https://github.com/destairdenbi/galaxy-workflow-generator/issues).
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-
-# Contributing
-
-New contributions are always welcome. Please read [these instructions](https://github.com/destairdenbi/galaxy-workflow-generator/blob/master/CONTRIBUTING.md) before proceeding in doing so.
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-
-# Contributors
-
- - [Andrea Bagnacani](https://github.com/bagnacan)
- - [Bérénice Batut](https://github.com/bebatut)
- - [Björn Grüning](https://github.com/bgruening)
- - [Steffen Lott](https://github.com/lotts)
- - [Konstantin Riege](https://github.com/koriege)
- - [Markus Wolfien](https://github.com/mwolfien)
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
-
-# MIT license
+## MIT license
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
