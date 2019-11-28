@@ -7,3 +7,7 @@
 [submodule "tools"]
 	path = tools
 	url = https://github.com/destairdenbi/galaxy-tools.git
+[submodule "atoms"]
+	path = atoms
+	url = https://github.com/destairdenbi/galaxy-atoms.git
+	branch = shift-tour
