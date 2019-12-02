@@ -25,7 +25,7 @@ Once done, you can follow this procedure:
   - A description of why the changes should be applied
   - A description of the implementation of the changes
   - A description of how to test the changes
-- The pull request should pass the continuous integration tests which are automatically run by GitHub using *e.g.* [Travis CI.](https://travis-ci.org/)
+- The pull request should pass the continuous integration tests which are automatically run by GitHub using *e.g.* [Travis CI](https://travis-ci.org/).
 - Your pull request will be reviewed and eventually merged
 - To keep your copy aligned to the main repository, you need to [syncronise your fork](https://help.github.com/articles/syncing-a-fork/)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
