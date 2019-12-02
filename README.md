@@ -152,7 +152,7 @@ Tool | Description | Reference
 :---: | :--- | :---
 Cutadapt | Error-tolerant adapter removal tool for High-Throughput Sequencing reads | [Martin 2011](https://doi.org/10.14806/ej.17.1.200)
 FastQC | A quality control tool for high throughput sequence data | [Andrews](https://www.bioinformatics.babraham.ac.uk/projects/fastqc/)
-PRINSEQ | A quality control and data preprocessing tool for metagenomic data | [Schmieder et al. 2011](https://doi.org/10.1093/bioinformatics/btr026)
+PRINSEQ | A quality control and data preprocessing tool for metagenomic data | [Schmieder and Edwards 2011](https://doi.org/10.1093/bioinformatics/btr026)
 Trim Galore! | Quality control tool for read trimming and filtering of NGS data |
 Trimmomatic | Quality control tool for read trimming and filtering of Illumina NGS data | [Bolger et al. 2014](https://doi.org/10.1093/bioinformatics/btu170)
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
