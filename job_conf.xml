@@ -45,18 +45,27 @@
 
     <tools>
         <tool id="cutadapt" destination="slurmthreaded"/>
+        <tool id="trim_galore"  destination="slurmthreaded"/>
+        <tool id="trimmomatic"  destination="slurmthreaded"/>
+        <tool id="prinseq"  destination="slurmthreaded"/>
+        <tool id="samtools_filter2"  destination="slurmthreaded"/>
         <tool id="samtools_sort"  destination="slurmthreaded"/>
         <tool id="samtools_flagstat"  destination="slurmthreaded"/>
-        <tool id="ncbi_blast_plus"  destination="slurmthreaded"/>
-        <tool id="blast_rbh"  destination="slurmthreaded"/>
+        <tool id="samtools_fixmate"  destination="slurmthreaded"/>
+        <tool id="samtools_markdup"  destination="slurmthreaded"/>
         <tool id="hisat2"  destination="slurmthreaded"/>
         <tool id="segemehl"  destination="slurmthreaded"/>
         <tool id="bwa"  destination="slurmthreaded"/>
         <tool id="featurecounts"  destination="slurmthreaded"/>
+        <tool id="deseq2"  destination="slurmthreaded"/>
         <tool id="sortmerna"  destination="slurmthreaded"/>
         <tool id="rcorrector"  destination="slurmthreaded"/>
         <tool id="rgrnastar"  destination="slurmthreaded"/>
         <tool id="bismark"  destination="slurmthreaded"/>
+        <tool id="bwameth"  destination="slurmthreaded"/>
+        <tool id="macs2"  destination="slurmthreaded"/>
+        <tool id="ncbi_blast_plus"  destination="slurmthreaded"/>
+        <tool id="blast_rbh"  destination="slurmthreaded"/>
         <tool id="canu"  destination="slurmthreaded"/>
         <tool id="miniasm"  destination="slurmthreaded"/>
         <tool id="unicycler"  destination="slurmthreaded"/>

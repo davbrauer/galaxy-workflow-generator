@@ -11,125 +11,189 @@ tools:
 - name: fastqc
   owner: devteam
   tool_panel_section_label: "Quality Control"
+  revisions:
+  - 'e7b2202befea'
 
 - name: cutadapt
   owner: lparsons
   tool_panel_section_label: "Quality Control"
+  revisions:
+  - 'e4691e1589d3'
 
 - name: trim_galore
   owner: bgruening
   tool_panel_section_label: "Quality Control"
+  revisions:
+  - '084bbd8ba7b8'
 
 - name: trimmomatic
   owner: pjbriggs
   tool_panel_section_label: "Quality Control"
+  revisions:
+  - '898b67846b47'
 
 - name: prinseq
   owner: iuc
   tool_panel_section_label: "Quality Control"
+  revisions:
+  - '898b67846b47'
 
 # Utilities
 
 - name: samtool_filter2
   owner: devteam
   tool_panel_section_label: "Utilities"
+  revisions:
+  - 'a7add3e93cc5'
 
 - name: samtools_sort
   owner: devteam
   tool_panel_section_label: "Utilities"
+  revisions:
+  - 'e613c1ad4c4c'
 
 - name: samtools_flagstat
   owner: devteam
   tool_panel_section_label: "Utilities"
+  revisions:
+  - 'db17d5321bad'
 
-- name: samtools_rmdup
-  owner: devteam
+- name: samtools_fixmate
+  owner: iuc
   tool_panel_section_label: "Utilities"
+  revisions:
+  - 'bc0cc7bfbfe9'
+
+- name: samtools_markdup
+  owner: iuc
+  tool_panel_section_label: "Utilities"
+  revisions:
+  - '83b8e36e9cbe'
 
 - name: bedtools
   owner: iuc
   tool_panel_section_label: "Utilities"
+  revisions:
+  - 'dde39ba9c031'
 
 # Text processing
 
 - name: text_processing
   owner: bgruening
   tool_panel_section_label: "Text processing"
+  revisions:
+  - '0a8c6b61f0f4'
 
 - name: replace_column_by_key_value_file
   owner: bgruening
   tool_panel_section_label: "Text processing"
+  revisions:
+  - 'd533e4b75800'
 
 - name: column_maker
   owner: devteam
   tool_panel_section_label: "Text processing"
+  revisions:
+  - '464b9305180e'
 
 # RNA-Seq
 
 - name: hisat2
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - '3fb01a8c902d'
 
 - name: segemehl
   owner: rnateam
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - '9c0d4ec99ba9'
 
 - name: bwa
   owner: devteam
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - '01ac0a5fedc3'
 
 - name: featurecounts
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - '9301937c9037'
 
 - name: deseq2
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - '0696db066a5b'
 
 - name: htseq_count
   owner: lparsons
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - '7f5a8d427b39'
 
 - name: rseqc
   owner: nilesh
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - 'f437057e46f1'
 
 - name: sortmerna
   owner: rnateam
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - 'eb35257d2e29'
 
 - name: data_manager_sortmerna_database_downloader
   owner: rnateam
   install_resolver_dependencies: false
+  revisions:
+  - '7d2252852f96'
 
 - name: rcorrector
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - '9a0b65ad3c84'
 
 - name: rgrnastar
   owner: iuc
   tool_panel_section_label: "RNA-Seq"
+  revisions:
+  - '0a563fd2f22e'
 
 # BS/RRBS-Seq
 
 - name: bismark
   owner: bgruening
   tool_panel_section_label: "BS/RRBS-Seq"
+  revisions:
+  - 'b6aa3b6ba129'
 
 - name: pileometh
   owner: bgruening
   tool_panel_section_label: "BS/RRBS-Seq"
+  revisions:
+  - '183cb55b1729'
 
 - name: segemehl
   owner: rnateam
   tool_panel_section_label: "BS/RRBS-Seq"
+  revisions:
+  - '9c0d4ec99ba9'
 
 - name: bwameth
   owner: iuc
   tool_panel_section_label: "BS/RRBS-Seq"
+  revisions:
+  - '29bdbc353f20'
 
 # Annotation
 
 - name: gtftobed12
   owner: iuc
   tool_panel_section_label: "Annotation"
+  revisions:
+  - '57d45064f114'
