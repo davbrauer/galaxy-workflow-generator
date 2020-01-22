@@ -122,7 +122,7 @@ $ docker run --net bridge -d -p 8080:80 --name destair quay.io/destair/galaxy-wo
 > by adding the following parameter:
 >
 > ```
-> $ -v /my/save/directory:/export
+> $ -v /absolute/path/to/local/directory:/export
 > ```
 
 Kitematic users can launch the Galaxy instance by following
