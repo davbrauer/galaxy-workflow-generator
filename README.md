@@ -118,6 +118,12 @@ $ docker run --net bridge -d -p 8080:80 --name destair quay.io/destair/galaxy-wo
 > $ docker run -e "GALAXY_CONFIG_PARALLEL_SLURM_PARAMS=--ntasks=8" \
 >   -e "GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS=8" ...
 > ```
+> To store users and data permanently, mount a directory on your harddrive into the containers /export directory
+> by adding the following parameter:
+>
+> ```
+> $ -v /my/save/directory:/export
+> ```
 
 Kitematic users can launch the Galaxy instance by following
 [these instructions](https://docs.docker.com/kitematic/userguide/).
