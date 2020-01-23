@@ -29,6 +29,7 @@ the suitability of each tool during the course of the analysis.
   - [Installation requirements](#installation-requirements)
   - [Run the container](#run-the-container)
   - [Login credentials](#login-credentials)
+  - [Howto update](#update-to-a-newer-image)
 - [Tools](#tools)
   - [Quality control](#quality-control)
   - [Mapping](#mapping)
