@@ -60,13 +60,19 @@ docker build -t destair-local:latest .
 
 ### Run the Docker image
 
-Execute this command to run the latest Docker image locally
-
+Execute this command to run the latest locally built Docker image
 ```
 docker run -d -p 8080:80 --name destair destair-local:latest
 ```
-<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
+Use this command to run our latest remotely built Docker image
+```
+docker run -d -p 8080:80 --name destair quay.io/destair/galaxy-workflow-generator:latest
+```
+
+for more parameters and further help, consult
+[these instructions](https://github.com/destairdenbi/galaxy-workflow-generator#run-the-container).
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 ### Port mapping
 
