@@ -52,7 +52,7 @@ $ git clone https://github.com/destairdenbi/galaxy-workflow-generator.git
 
 Enter the cloned repository, and build the Docker container locally
 ```
-docker build -t destairdenbi/galaxy-workflow-generator:19.01 .
+docker build -t destair-local:latest .
 ```
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
@@ -60,13 +60,19 @@ docker build -t destairdenbi/galaxy-workflow-generator:19.01 .
 
 ### Run the Docker image
 
-Execute this command to run the latest Docker image locally
+Execute this command to run the latest locally built Docker image
+```
+docker run -d -p 8080:80 --name destair destair-local:latest
+```
 
+Use this command to run our latest remotely built Docker image
 ```
-docker run -d -p 8080:80 quay.io/destair/galaxy-modular-workflow-generator:latest
+docker run -d -p 8080:80 --name destair quay.io/destair/galaxy-workflow-generator:latest
 ```
+
+for more parameters and further help, consult
+[these instructions](https://github.com/destairdenbi/galaxy-workflow-generator#run-the-container).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
-
 
 ### Port mapping
 
@@ -78,18 +84,20 @@ docker run -p 8081:80 -p 8022:21 quay.io/destair/galaxy-workflow-generator:lates
 
 
 ### Storage
-You can run the Galaxy Docker container by creating a *bind mount* to export the contents the ``/export`` directory on the local disk:
+You can run the Galaxy Docker container by creating a *bind mount* to mount a local directory into the containers /export directory. Galaxy will moves all databases and configurations into the export directory, to store data safely and persistent on your local harddrive.
 ```
 docker run -d -p 8080:80 -v /absolute/path/to/local/directory/:/export/ quay.io/destair/galaxy-workflow-generator:latest
 ```
+You can now modify configurations, atoms and our plugins located in ``/absolute/path/to/local/directory/galaxy-central``
+To revert or compare changes with original sources shipped with the image, you can use ``diff`` or ``meld`` on files located in ``/absolute/path/to/local/directory/.distribution_config``
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
 ### Restart the container
 
-You can restart the running Docker container
+You can restart Galaxy within the running Docker container to reload configuration files, atoms and plugins
 ```
-supervisorctl restart galaxy:
+docker exec destair supervisorctl restart galaxy:
 ```
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 

@@ -29,6 +29,7 @@ the suitability of each tool during the course of the analysis.
   - [Installation requirements](#installation-requirements)
   - [Run the container](#run-the-container)
   - [Login credentials](#login-credentials)
+  - [Howto update](#update-to-a-newer-image)
 - [Tools](#tools)
   - [Quality control](#quality-control)
   - [Mapping](#mapping)
@@ -85,7 +86,7 @@ and BS/RRBS-Seq analyses.
 
 ## Run the instance
 The Galaxy workflow generator can run on you machine. The following sections
-will help you set up and run the instance.
+will help you set up and run the instance. Optional, have a look [here](https://github.com/bgruening/docker-galaxy-stable) for more detailed information.
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
@@ -141,6 +142,29 @@ To be able to analyse data, users need to be logged in.
 button, on the top header
 - Galaxy administrators can use the default credentials username: `admin`,
 password: `admin`, and then change settings later on.
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+### Update to a newer image
+Stop the running container.
+```
+$ docker stop destair
+```
+Pull the latest image
+```
+$ docker pull quay.io/destair/galaxy-workflow-generator:latest
+```
+Run the new image as described above
+
+
+In case a bind mount (``-v`` parameter, see above) was used, upgrades on atoms and tours can be found, compared and copied from the following locations.
+```
+cp -r /absolute/path/to/local/directory/.distribution_config/plugins/webhooks/* /absolute/path/to/local/directory/galaxy-central/plugins/webhooks
+cp /absolute/path/to/local/directory/.distribution_config/plugins/tours/*.yaml /absolute/path/to/local/directory/galaxy-central/plugins/tours/
+```
+Now restart Galaxy
+```
+docker exec destair supervisorctl restart galaxy:
+```
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
