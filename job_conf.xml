@@ -22,19 +22,19 @@
 
     <destinations default="slurm">
         <destination id="local" runner="local">
-            <env file="/galaxy_venv/bin/activate"/>
+            <!-- <env file="/galaxy_venv/bin/activate"/> -->
             <param id="local_slots">1</param>
         </destination>
         <destination id="localthreaded" runner="localthreaded">
-            <env file="/galaxy_venv/bin/activate"/>
+            <!-- <env file="/galaxy_venv/bin/activate"/> -->
             <param id="local_slots" from_environ="GALAXY_CONFIG_PARALLEL_LOCAL_NTASKS">2</param>
         </destination>
         <destination id="slurm" runner="slurm">
-            <env file="/galaxy_venv/bin/activate"/>
+            <!-- <env file="/galaxy_venv/bin/activate"/> -->
             <param id="nativeSpecification">--ntasks=1</param>
         </destination>
         <destination id="slurmthreaded" runner="slurm">
-            <env file="/galaxy_venv/bin/activate"/>
+            <!-- <env file="/galaxy_venv/bin/activate"/> -->
             <param id="nativeSpecification" from_environ="GALAXY_CONFIG_PARALLEL_SLURM_PARAMS">--ntasks=2</param>
         </destination>
     </destinations>
