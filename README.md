@@ -125,6 +125,12 @@ $ docker run --net bridge -d -p 8080:80 --name destair quay.io/destair/galaxy-wo
 > ```
 > $ -v /absolute/path/to/local/directory:/export
 > ```
+> To use an other user account rather than the default admins, to allow for anonoymous workflow generation
+> prefix the command the following way and create the new user afterwards:
+>
+> ```
+> $ docker run -e "GALAXY_DEFAULT_WORKFLOWGENERATOR_USER=username@to-be.created"
+> ```
 
 Kitematic users can launch the Galaxy instance by following
 [these instructions](https://docs.docker.com/kitematic/userguide/).
@@ -158,12 +164,12 @@ Run the new image as described above
 
 In case a bind mount (``-v`` parameter, see above) was used, upgrades on atoms and tours can be found, compared and copied from the following locations.
 ```
-cp -r /absolute/path/to/local/directory/.distribution_config/plugins/webhooks/* /absolute/path/to/local/directory/galaxy-central/plugins/webhooks
-cp /absolute/path/to/local/directory/.distribution_config/plugins/tours/*.yaml /absolute/path/to/local/directory/galaxy-central/plugins/tours/
+$ cp -r /absolute/path/to/local/directory/.distribution_config/plugins/webhooks/* /absolute/path/to/local/directory/galaxy-central/plugins/webhooks
+$ cp /absolute/path/to/local/directory/.distribution_config/plugins/tours/*.yaml /absolute/path/to/local/directory/galaxy-central/plugins/tours/
 ```
 Now restart Galaxy
 ```
-docker exec destair supervisorctl restart galaxy:
+$ docker exec destair supervisorctl restart galaxy:
 ```
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
