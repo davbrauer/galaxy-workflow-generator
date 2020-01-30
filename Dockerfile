@@ -1,4 +1,4 @@
-FROM bgruening/galaxy-stable:19.01
+FROM bgruening/galaxy-stable:19.05
 
 MAINTAINER de.STAIR destair@leibniz-fli.de
 
@@ -24,7 +24,8 @@ RUN install-tools $GALAXY_ROOT/tools.yaml && \
     rm -rf /export/galaxy-central/
 
 RUN startup_lite && \
-    galaxy-wait && \
+	. /tool_deps/_conda/bin/activate && \
+	galaxy-wait && \
     run-data-managers --config $GALAXY_ROOT/data_managers.yaml -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD --api_key $GALAXY_DEFAULT_ADMIN_KEY && \
     workflow-install --workflow_path /tmp/workflows/ -g http://localhost:8080 -u $GALAXY_DEFAULT_ADMIN_USER -p $GALAXY_DEFAULT_ADMIN_PASSWORD --api_key $GALAXY_DEFAULT_ADMIN_KEY && \
     rm -rf /tmp/workflows
