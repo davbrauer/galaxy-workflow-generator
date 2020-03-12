@@ -76,6 +76,12 @@ tools:
   revisions:
   - 'dde39ba9c031'
 
+- name: picard
+  owner: devteam
+  tool_panel_section_label: "Utilities"
+  revisions:
+  - 'a1f0b3f4b781'
+
 # Text processing
 
 - name: text_processing
@@ -197,3 +203,17 @@ tools:
   tool_panel_section_label: "Annotation"
   revisions:
   - '57d45064f114'
+
+# Peak Calling
+
+- name: macs2
+  owner: iuc
+  tool_panel_section_label: "Peak Calling"
+  revision:
+  - '424aefbd7777'
+
+- name: idr
+  owner: iuc
+  tool_panel_section_label: "Peak Calling"
+  revisions:
+  - 'd3ebbf39b1c5'

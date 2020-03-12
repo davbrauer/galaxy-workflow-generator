@@ -58,6 +58,21 @@ cat << EOF >> $GALAXY_ROOT/tools/data_source/upload.xml
       url      = {http://www.ncbi.nlm.nih.gov/pubmed/28676233},
     }
     </citation>
+
+    <citation type="bibtex">@Article{Galaxy,
+      author   = {Afgan, Enis and Baker, Dannon and Batut, B{\'e}r{\'e}nice and Van Den Beek, Marius and Bouvier, Dave and {\v{C}}ech, Martin and Chilton, John and Clements, Dave and Coraor, Nate and Gr{\"u}ning, Bj{\"o}rn A and others},
+      title    = {The Galaxy platform for accessible, reproducible and collaborative biomedical analyses: 2018 update.},
+      journal  = {Nucleic acids research},
+      year     = {2018},
+      volume   = {46},
+      number   = {W1},
+      pages    = {W537--W544},
+      doi      = {10.1093/nar/gky379},
+      language = {eng},
+      url      = {https://academic.oup.com/nar/article/46/W1/W537/5001157},
+    }
+    </citation>
+
   </citations>
 </tool>
 EOF
