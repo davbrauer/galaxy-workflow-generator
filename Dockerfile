@@ -14,7 +14,7 @@ COPY job_conf.xml $GALAXY_CONFIG_JOB_CONFIG_FILE
 
 COPY web /tmp/web
 COPY workflows /tmp/workflows
-COPY workflows/dgea/pe workflows/dgea/se workflows/bs/pe /tmp/workflows
+COPY workflows/dgea/pe/*.ga workflows/dgea/se/*.ga workflows/bs/pe/*.ga /tmp/workflows/
 COPY atoms /tmp/atoms
 COPY webhooks /tmp/webhooks
 COPY tools /tmp/tools
