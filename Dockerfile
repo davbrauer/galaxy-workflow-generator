@@ -13,7 +13,6 @@ COPY data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 COPY job_conf.xml $GALAXY_CONFIG_JOB_CONFIG_FILE
 
 COPY web /tmp/web
-COPY workflows /tmp/workflows
 COPY workflows/dgea/pe/*.ga workflows/dgea/se/*.ga workflows/bs/pe/*.ga /tmp/workflows/
 COPY atoms /tmp/atoms
 COPY webhooks /tmp/webhooks
