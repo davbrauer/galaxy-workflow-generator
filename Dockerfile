@@ -14,7 +14,7 @@ COPY job_conf.xml $GALAXY_CONFIG_JOB_CONFIG_FILE
 
 COPY web /tmp/web
 COPY workflows/dgea/pe/*.ga workflows/dgea/se/*.ga workflows/bs/pe/*.ga /tmp/workflows/
-COPY atoms/dgea/pe/* atoms/dgea/se/* atoms/bs/pe/* /tmp/atoms/
+COPY atoms/destair_template.html atoms/setup.sh atoms/dgea/pe/* atoms/dgea/se/* atoms/bs/pe/* /tmp/atoms/
 COPY webhooks /tmp/webhooks
 COPY tools /tmp/tools
 COPY setup.sh /tmp/setup.sh
