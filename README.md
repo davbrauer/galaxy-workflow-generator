@@ -36,6 +36,7 @@ the suitability of each tool during the course of the analysis.
   - [RNA-Seq](#rna-seq)
   - [BS/RRBS-Seq](#bsrrbs-seq)
   - [Utilities](#utilities)
+- [Workflows](#workflows)
 - [Support](#support)
   - [Contributing](#contributing)
   - [Contributors](#contributors)
@@ -239,6 +240,16 @@ Tool | Description | Reference
 :---: | :--- | :---
 SAMtools | Utilities for manipulating alignments in the SAM format | [Heng et al. 2009](https://doi.org/10.1093/bioinformatics/btp352)
 BEDTools | Utilities for genome arithmetic | [Quinlan et al. 2010](https://doi.org/10.1093/bioinformatics/btq033)
+<p align="right"><a href="#top">&#x25B2; back to top</a></p>
+
+
+## Workflows
+
+The Galaxy workflow generator incorporates a set of sample workflows that are
+created using the de.STAIR [Galaxy atoms](https://github.com/destairdenbi/galaxy-atoms).  
+Workflows cover Differential gene expression analyses (single-end and
+paired-end reads) and RRBS/BS-Seq analyses (paired-end reads), and are
+collected in their [dedicated repository](https://github.com/destairdenbi/galaxy-workflows).
 <p align="right"><a href="#top">&#x25B2; back to top</a></p>
 
 
