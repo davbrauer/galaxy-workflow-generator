@@ -28,7 +28,8 @@ sed -i -r 's/Get\s+Data/Upload Data/' $GALAXY_ROOT/integrated_tool_panel.xml
 mv /tmp/webhooks/* $GALAXY_ROOT/config/plugins/webhooks
 rm -rf /tmp/webhooks
 
-mv /tmp/atoms/*yaml $GALAXY_ROOT/config/plugins/tours/
+mv /tmp/atoms/*/*/*.yaml $GALAXY_ROOT/config/plugins/tours/
+mv /tmp/atoms/*/*/*.html $GALAXY_ROOT/static
 mv /tmp/atoms/*.html $GALAXY_ROOT/static
 rm -rf /tmp/atoms
 
