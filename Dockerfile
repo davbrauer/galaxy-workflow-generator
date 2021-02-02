@@ -13,11 +13,11 @@ COPY data_managers.yaml $GALAXY_ROOT/data_managers.yaml
 COPY job_conf.xml $GALAXY_CONFIG_JOB_CONFIG_FILE
 
 COPY web /tmp/web
-COPY workflows/dgea/pe/*.ga workflows/dgea/se/*.ga workflows/bs/pe/*.ga /tmp/workflows/
-COPY atoms/destair_template.html atoms/setup.sh atoms/dgea/pe/* atoms/dgea/se/* atoms/bs/pe/* /tmp/atoms/
+COPY atoms /tmp/atoms
 COPY webhooks /tmp/webhooks
 COPY tools /tmp/tools
 COPY setup.sh /tmp/setup.sh
+COPY workflows/*/*/*.ga /tmp/workflows
 
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
     $GALAXY_CONDA_PREFIX/bin/conda clean -y --all > /dev/null && \
