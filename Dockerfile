@@ -17,7 +17,7 @@ COPY atoms /tmp/atoms
 COPY webhooks /tmp/webhooks
 COPY tools /tmp/tools
 COPY setup.sh /tmp/setup.sh
-COPY workflows/*/*/*.ga /tmp/workflows
+COPY workflows/*/*/*.ga /tmp/workflows/
 
 RUN install-tools $GALAXY_ROOT/tools.yaml && \
     $GALAXY_CONDA_PREFIX/bin/conda clean -y --all > /dev/null && \
